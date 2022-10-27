@@ -9,47 +9,51 @@
 
   <body>
 
-    <div class="grid__container">
+    <div class="grid-container">
       <header class="header">
         <a class="header__logo-link" href="#">
           <img src="images/logo.svg" width="145" height="36" alt="Логотип магазина Девайс">
         </a>
         <form class="header__search-form" action="https://echo.htmlacademy.ru/" method="post">
-          <label class="header__search-form__title">
+          <label class="header__search-title">
             <span class="visually-hidden">Найти товары в магазине Девайс</span>
-            <input class="field header__search-form__input" type="email" name="e-mail" placeholder="Поиск по сайту" required>
-            <span class="header__search-form__icon"></span>
+            <input class="field header__search-input" type="text" name="search" placeholder="Поиск по сайту" required>
+            <span class="header__search-icon"></span>
           </label>
-          <button class="header__search-form__button button" type="submit">Найти</button>
+          <button class="header__search-button button" type="submit">Найти</button>
         </form>
-        <a class="header__signin-link header__link header__user-link" href="#">Войти</a>
-        <a class="header__compare-link header__link header__product-link" href="#">Сравнить</a>
-        <a class="header__basket-link header__link header__product-link" href="#">
-          <span class="header__basket-link__count">2</span>
-          Корзина</a>
-        <div class="basket">
-          <ul class="header__tooltip-list">
-            <li class="tooltip-list__item">
-              <a href="#" class="tooltip-item__link">
-                <img class="item-thumb" src="#" width="39" height="43" alt="Любительская селфи-палка">
-                <h2 class="item-title">Любительская селфи-палка</h2>
-              </a>
-              <button class="tooltip-item__close-button" type="button">
-                <span class="visually-hidden">Удалить товар из корзины</span>
-              </button>
-            </li>
-            <li class="tooltip-list__item">
-              <a href="#" class="tooltip-item__link">
-                <img class="item-thumb" src="#" width="39" height="43" alt="Профессиональная селфи-палка">
-                <h2 class="item-title">Профессиональная селфи-палка</h2>
-              </a>
-              <button class="tooltip-item__close-button" type="button">
-                <span class="visually-hidden">Удалить товар из корзины</span>
-              </button>
-            </li>
-          </ul>
-          <a class="basket-open" href="#">Открыть корзину</a>
-        </div>
+        <nav class="header__user-navigation">
+          <a class="header_signin-link header__link header__user-link header_nav-item" href="#">Войти</a>
+          <a class="header_compare-link header__link header__product-link header_nav-item" href="#">Сравнить</a>
+          <span class="header__basket header__product-link header_nav-item">
+            <a class="header_basket-link header__link header__product-link" href="#">Корзина
+              <span class="header__basket-link__count">2</span>
+            </a>
+            <span class="header__basket-inner">
+              <ul class="header__tooltip-list">
+                <li class="tooltip-list__item">
+                  <a href="#" class="tooltip-item__link">
+                    <img class="item-thumb" src="#" width="39" height="43" alt="Любительская селфи-палка">
+                    <h2 class="item-title">Любительская селфи-палка</h2>
+                  </a>
+                  <button class="tooltip-item__close-button" type="button">
+                    <span class="visually-hidden">Удалить товар из корзины</span>
+                  </button>
+                </li>
+                <li class="tooltip-list__item">
+                  <a href="#" class="tooltip-item__link">
+                    <img class="item-thumb" src="#" width="39" height="43" alt="Профессиональная селфи-палка">
+                    <h2 class="item-title">Профессиональная селфи-палка</h2>
+                  </a>
+                  <button class="tooltip-item__close-button" type="button">
+                    <span class="visually-hidden">Удалить товар из корзины</span>
+                  </button>
+                </li>
+              </ul>
+              <a class="basket-open" href="#">Открыть корзину</a>
+            </span>
+          </span>
+        </nav>
       </header>
     </div>
 

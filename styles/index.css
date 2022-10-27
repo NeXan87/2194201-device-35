@@ -48,7 +48,7 @@ body {
   clip-path: inset(100%);
 }
 
-.grid__container {
+.grid-container {
   display: grid;
   width: 1280px;
   margin: 0 auto;
@@ -63,7 +63,7 @@ body {
   opacity: 0.6;
 }
 
-.header__link:active, .header__logo-link:active, .header__search-form__button:disabled, .header__search-form__input:disabled + .header__search-form__icon, .header__search-form__input:disabled {
+.header__link:active, .header__logo-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
   opacity: 0.3;
 }
 
@@ -74,7 +74,7 @@ body {
   text-decoration: none;
 }
 
-.header__search-form__button:disabled, .header__search-form__input:disabled + .header__search-form__icon, .header__search-form__input:disabled {
+.header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
   pointer-events: none;
 }
 
@@ -96,8 +96,6 @@ body {
 .header {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
   padding: 40px 60px 0 60px;
   background-color: #ffe17f;
@@ -112,13 +110,14 @@ body {
   display: flex;
   margin-right: 26px;
   overflow: hidden;
+  flex-shrink: 0;
 }
-.header__search-form__title {
+.header__search-title {
   position: relative;
-  display: flex;
 }
-.header__search-form__input {
+.header__search-input {
   width: 359px;
+  height: 100%;
   padding: 10px 10px 10px 48px;
   font-size: 16px;
   line-height: 20px;
@@ -126,27 +125,27 @@ body {
   border: 2px solid #000000;
   border-radius: 50px 0 0 50px;
 }
-.header__search-form__input:focus {
+.header__search-input:focus {
   z-index: 1;
   border: 2px solid #af4fff;
   outline: none;
 }
-.header__search-form__input::-webkit-input-placeholder {
+.header__search-input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
-.header__search-form__input::-moz-placeholder {
+.header__search-input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
-.header__search-form__input:-ms-input-placeholder {
+.header__search-input:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
-.header__search-form__input::-ms-input-placeholder {
+.header__search-input::-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
-.header__search-form__input::placeholder {
+.header__search-input::placeholder {
   color: rgba(0, 0, 0, 0.3);
 }
-.header__search-form__icon {
+.header__search-icon {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -158,7 +157,7 @@ body {
   background-repeat: no-repeat;
   pointer-events: none;
 }
-.header__search-form__button {
+.header__search-button {
   position: relative;
   left: -2px;
   width: 160px;
@@ -167,20 +166,25 @@ body {
   border: 2px solid #000000;
   border-radius: 0 50px 50px 0;
 }
-.header__search-form__button:hover {
+.header__search-button:hover {
   color: #ffffff;
   background-color: #000000;
 }
-.header__search-form__button:focus {
+.header__search-button:focus {
   border: 2px solid #af4fff;
   outline: none;
 }
-.header__search-form__button:active {
+.header__search-button:active {
   color: rgba(255, 255, 255, 0.3);
 }
-.header__search-form__button:disabled {
+.header__search-button:disabled {
   color: #000000;
   background-color: transparent;
+}
+.header__user-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .header__link::before {
   content: "";
@@ -191,28 +195,28 @@ body {
   margin: auto;
   background-repeat: no-repeat;
 }
-.header__link + .header__link {
+.header_nav-item + .header_nav-item {
   margin-left: 36px;
 }
 .header__user-link + .header__product-link {
   margin-left: auto;
 }
-.header__signin-link::before {
+.header_signin-link::before {
   width: 13px;
   height: 12px;
   background-image: url("../images/icons/user.svg");
 }
-.header__compare-link::before {
+.header_compare-link::before {
   width: 10px;
   height: 12px;
   background-image: url("../images/icons/compare.svg");
 }
-.header__basket-link::before {
+.header_basket-link::before {
   width: 16px;
   height: 14px;
   background-image: url("../images/icons/basket.svg");
 }
-.header__basket-link__count {
+.header_basket-link__count {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -227,4 +231,8 @@ body {
   text-align: center;
   background-color: #ffffff;
   border-radius: 50%;
+}
+.header__basket-inner {
+  position: absolute;
+  display: none;
 }
