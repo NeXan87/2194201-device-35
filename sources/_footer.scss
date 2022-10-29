@@ -1,0 +1,172 @@
+.footer {
+  padding: 62px 3% 65px 3%;
+
+  background-color: #444444;
+
+  grid-column: 1 / -1;
+  grid-row-end: -1;
+
+  &__inner {
+    display: grid;
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+
+    grid-template-columns: 239px 1fr minmax(300px, 444px) 1.54fr 175px;
+  }
+
+  &__contacts-wrapper {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+
+      width: 80px;
+      height: 7px;
+
+      background-color: #ffc700;
+    }
+  }
+
+  &__logo-link {
+    display: inline-block;
+    margin-bottom: 35px;
+  }
+  &__address {
+    margin-bottom: 64px;
+
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+  }
+
+  &__info-wrapper {
+    align-self: end;
+
+    grid-column-start: 3;
+  }
+
+  &__info-navigation {
+    margin-bottom: 62px;
+  }
+
+  &_nav-info_list {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  &_nav-info_margin:not(:last-child) {
+    margin-right: 35px;
+  }
+
+  &_nav-info_link {
+    color: #ffffff;
+    letter-spacing: 0.15em;
+  }
+
+  &__phone-wrapper {
+    align-self: end;
+
+    grid-column-end: -1;
+  }
+
+  &__phone {
+    margin-bottom: 63px;
+
+    color: #ffffff;
+  }
+}
+
+.social {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    line-height: 12px;
+
+    @extend %list-style-none;
+  }
+
+  &-item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &-link {
+    position: relative;
+
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+
+    background-color: rgba($color: #ffffff, $alpha: 0.3);
+    border-radius: 50%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: auto;
+
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      background-color: #ffc700;
+    }
+
+    &:active::before {
+      @extend %condition-active;
+    }
+
+    &_telegram {
+      &::before {
+        width: 14px;
+        height: 12px;
+
+        background-image: url("../images/icons/social-telegram.svg");
+      }
+    }
+    &_youtube {
+      &::before {
+        width: 16px;
+        height: 11px;
+
+        background-image: url("../images/icons/social-youtube.svg");
+      }
+    }
+    &_twitter {
+      &::before {
+        width: 15px;
+        height: 15px;
+
+        background-image: url("../images/icons/social-twitter.svg");
+      }
+    }
+  }
+}
+
+.phone {
+  &__number {
+    font-size: 16px;
+    line-height: 20px;
+
+    @extend %link-style-none;
+
+    &:hover {
+      @extend %condition-hover;
+    }
+
+    &:active {
+      @extend %condition-active;
+    }
+  }
+}

@@ -5,6 +5,7 @@
 }
 
 body {
+  height: 100vh;
   margin: 0;
 
   font-style: normal;
@@ -17,8 +18,8 @@ body {
 .visually-hidden {
   position: absolute;
 
-  width: 1px;
-  height: 1px;
+  width: 0px;
+  height: 0px;
   margin: -1px;
   padding: 0;
   overflow: hidden;
@@ -34,11 +35,12 @@ body {
 
 .grid-container {
   display: grid;
-  width: 1160px;
+  min-height: 100%;
   margin: 0 auto;
   padding-top: 40px;
 
   column-gap: 40px;
 
   grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: min-content 1fr min-content;
 }

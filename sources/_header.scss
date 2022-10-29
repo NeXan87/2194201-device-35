@@ -57,8 +57,9 @@
 }
 
 .header {
+  max-width: 1160px;
   position: relative;
-
+  margin: 0 auto;
   display: grid;
   padding: 46px 60px 0 60px;
 
@@ -357,6 +358,10 @@
   &__catalog {
     grid-column: 1;
   }
+
+  &__info-navigation {
+    grid-column-end: -1;
+  }
 }
 
 .catalog {
@@ -446,8 +451,6 @@
 }
 
 .nav-info {
-  grid-column-end: -1;
-
   &__list {
     display: flex;
     flex-wrap: wrap;
