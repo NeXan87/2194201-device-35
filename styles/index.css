@@ -1,8 +1,8 @@
-.phone__number:hover, .nav-info__link:hover, .catalog__link:hover, .header__basket-close-button:hover, .header__basket-link:hover, .header__logo-link:hover, .user-nav-link:hover {
+.phone-number:hover, .footer__logo-link:hover, .nav-info__link:hover, .catalog__link:hover, .header__basket-close-button:hover, .header__basket-link:hover, .header__logo-link:hover, .user-nav-link:hover {
   opacity: 0.6;
 }
 
-.phone__number:active, .social-link:active::before, .nav-info__link:active, .catalog__link:active, .header__basket-close-button:active, .header__basket-link:active, .header__logo-link:active, .user-nav-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
+.copyright__svg:active, .phone-number:active, .social-link:active::before, .footer__logo-link:active, .nav-info__link:active, .catalog__link:active, .header__basket-close-button:active, .header__basket-link:active, .header__logo-link:active, .user-nav-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
   opacity: 0.3;
 }
 
@@ -16,7 +16,7 @@
   list-style: none;
 }
 
-.phone__number, .nav-info__link, .catalog__link {
+.phone-number, .nav-info__link, .catalog__link {
   color: #000000;
   text-decoration: none;
 }
@@ -438,6 +438,13 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
+.main {
+  grid-column: 1/-1;
+  max-width: 1160px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .footer {
   padding: 62px 3% 65px 3%;
   background-color: #444444;
@@ -491,12 +498,17 @@ body {
   letter-spacing: 0.15em;
 }
 .footer__phone-wrapper {
+  display: flex;
+  flex-direction: column;
   align-self: end;
   grid-column-end: -1;
 }
 .footer__phone {
   margin-bottom: 63px;
   color: #ffffff;
+}
+.footer__copyright {
+  align-self: flex-end;
 }
 
 .social-list {
@@ -545,7 +557,14 @@ body {
   background-image: url("../images/icons/social-twitter.svg");
 }
 
-.phone__number {
+.phone-number {
+  display: inline-block;
   font-size: 16px;
   line-height: 20px;
+}
+.copyright__svg {
+  fill: #ffc700;
+}
+.copyright__svg:hover {
+  fill: #ffffff;
 }

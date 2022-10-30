@@ -32,7 +32,16 @@
   &__logo-link {
     display: inline-block;
     margin-bottom: 35px;
+
+    &:hover {
+      @extend %condition-hover;
+    }
+
+    &:active {
+      @extend %condition-active;
+    }
   }
+
   &__address {
     margin-bottom: 64px;
 
@@ -67,6 +76,8 @@
   }
 
   &__phone-wrapper {
+    display: flex;
+    flex-direction: column;
     align-self: end;
 
     grid-column-end: -1;
@@ -76,6 +87,10 @@
     margin-bottom: 63px;
 
     color: #ffffff;
+  }
+
+  &__copyright {
+    align-self: flex-end;
   }
 }
 
@@ -155,7 +170,9 @@
 }
 
 .phone {
-  &__number {
+  &-number {
+    display: inline-block;
+
     font-size: 16px;
     line-height: 20px;
 
@@ -163,6 +180,20 @@
 
     &:hover {
       @extend %condition-hover;
+    }
+
+    &:active {
+      @extend %condition-active;
+    }
+  }
+}
+
+.copyright {
+  &__svg {
+    fill: #ffc700;
+
+    &:hover {
+      fill: #ffffff;
     }
 
     &:active {
