@@ -1,8 +1,8 @@
-.phone-number:hover, .footer__logo-link:hover, .slider__point:hover, .slider__button-control:hover, .nav-info__link:hover, .catalog__link:hover, .header__basket-close-button:hover, .header__basket-link:hover, .header__logo-link:hover, .user-nav-link:hover {
+.phone-number:hover, .footer__logo-link:hover, .products__link:hover, .slider__point:hover, .slider__button-control:hover, .nav-info__link:hover, .catalog__link:hover, .header__basket-close-button:hover, .header__basket-link:hover, .header__logo-link:hover, .user-nav-link:hover {
   opacity: 0.6;
 }
 
-.phone-number:active, .social-link:active::before, .footer__logo-link:active, .copyright__svg:active, .slider__point:active, .slider__button-control:active, .nav-info__link:active, .catalog__link:active, .header__basket-close-button:active, .header__basket-link:active, .header__logo-link:active, .user-nav-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
+.phone-number:active, .social-link:active::before, .footer__logo-link:active, .copyright__svg:active, .products__link:active, .slider__point:active, .slider__button-control:active, .nav-info__link:active, .catalog__link:active, .header__basket-close-button:active, .header__basket-link:active, .header__logo-link:active, .user-nav-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
   opacity: 0.3;
 }
 
@@ -10,13 +10,13 @@
   pointer-events: none;
 }
 
-.social-list, .slider__pagination, .nav-info__list, .catalog__list, .header__basket-list {
+.social-list, .products__list, .slider__pagination, .nav-info__list, .catalog__list, .header__basket-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.phone-number, .nav-info__link, .catalog__link {
+.phone-number, .products__link, .nav-info__link, .catalog__link {
   color: #000000;
   text-decoration: none;
 }
@@ -596,6 +596,54 @@ body {
 .slider_current-point {
   background-color: #000000;
   pointer-events: none;
+}
+
+.products {
+  padding-top: 7px;
+  padding-bottom: 35px;
+}
+.products__list {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(6, 160px);
+}
+.products__link {
+  display: inline-block;
+}
+.products__logo {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 24px;
+  background-color: #ffe17f;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.products_virtual-reality {
+  background-image: url("../images/products/icons/virtual-reality.svg");
+}
+.products_monopods {
+  background-image: url("../images/products/icons/monopods.svg");
+  background-position-y: bottom;
+}
+.products_action-cameras {
+  background-image: url("../images/products/icons/action-cameras.svg");
+}
+.products_fitness-bracelets {
+  background-image: url("../images/products/icons/fitness-bracelets.svg");
+}
+.products_smart-watches {
+  background-image: url("../images/products/icons/smart-watches.svg");
+}
+.products_quadrocopters {
+  background-image: url("../images/products/icons/quadrocopters.svg");
+}
+.products__text {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .copyright__svg {

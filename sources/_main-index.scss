@@ -150,3 +150,74 @@
     pointer-events: none;
   }
 }
+
+.products {
+  padding-top: 7px;
+  padding-bottom: 35px;
+
+  &__list {
+    display: grid;
+
+    @extend %list-style-none;
+    gap: 40px;
+    grid-template-columns: repeat(6, 160px);
+  }
+
+  &__link {
+    display: inline-block;
+
+    @extend %link-style-none;
+
+    &:hover {
+      @extend %condition-hover;
+    }
+
+    &:active {
+      @extend %condition-active;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 24px;
+
+    background-color: #ffe17f;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &_virtual-reality {
+    background-image: url("../images/products/icons/virtual-reality.svg");
+  }
+
+  &_monopods {
+    background-image: url("../images/products/icons/monopods.svg");
+    background-position-y: bottom;
+  }
+
+  &_action-cameras {
+    background-image: url("../images/products/icons/action-cameras.svg");
+  }
+
+  &_fitness-bracelets {
+    background-image: url("../images/products/icons/fitness-bracelets.svg");
+  }
+
+  &_smart-watches {
+    background-image: url("../images/products/icons/smart-watches.svg");
+  }
+
+  &_quadrocopters {
+    background-image: url("../images/products/icons/quadrocopters.svg");
+  }
+
+  &__text {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: "Raleway", sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
