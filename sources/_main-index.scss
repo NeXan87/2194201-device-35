@@ -1,4 +1,7 @@
 .slider {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
   padding-bottom: 35px;
 
   &__count {
@@ -152,8 +155,11 @@
 }
 
 .products {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
   padding-top: 7px;
-  padding-bottom: 35px;
+  padding-bottom: 81px;
 
   &__list {
     display: grid;
@@ -219,5 +225,136 @@
     line-height: 24px;
     font-family: "Raleway", sans-serif;
     letter-spacing: -0.02em;
+  }
+}
+
+.advantages {
+  background-color: #f0f0f0;
+
+  &__wrapper {
+    display: grid;
+    max-width: 1160px;
+    margin: 0 auto;
+    min-height: 319px;
+    grid-template-columns: 280px 1fr;
+    position: relative;
+    top: -101px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 100%;
+      background-color: #000000;
+      grid-column-start: 2;
+    }
+  }
+
+  &__list {
+    align-self: center;
+
+    @extend %list-style-none;
+    grid-column-start: 1;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 160px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &__button-text {
+    flex-shrink: 0;
+    width: 160px;
+    padding: 10px 10px 10px 14px;
+
+    transition: transform 0.2s;
+  }
+
+  &_current {
+    justify-content: flex-start;
+    max-width: 100%;
+    padding: 0;
+
+    color: #ffe17f;
+
+    background-color: #000000;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover .advantages__button-text {
+      transform: translateX(30px);
+    }
+
+    &:active::before {
+      background: none;
+    }
+  }
+
+  &__inner {
+    padding-left: 14%;
+    grid-column-end: -1;
+    align-self: center;
+  }
+
+  &__description {
+    max-width: 475px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-repeat: no-repeat;
+      top: 3px;
+      left: 100%;
+      margin-left: 17.5%;
+    }
+  }
+
+  &_delivery {
+    &::after {
+      background-image: url("../images/icons/advantages/advantages-delivery.svg");
+      width: 136px;
+      height: 165px;
+    }
+  }
+
+  &_warranty {
+    &::after {
+      background-image: url("../images/icons/advantages/advantages-warranty.svg");
+      width: 171px;
+      height: 195px;
+    }
+  }
+
+  &_credit {
+    &::after {
+      background-image: url("../images/icons/advantages/advantages-credit.svg");
+      width: 156px;
+      height: 189px;
+    }
+  }
+
+  &__title {
+    font-family: "Raleway", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    margin: 0;
+    margin-bottom: 34px;
+  }
+
+  &__text {
+    margin: 0;
   }
 }
