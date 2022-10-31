@@ -44,3 +44,16 @@ body {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: min-content 1fr min-content;
 }
+
+.main {
+  grid-column: 1 / -1;
+  max-width: 1160px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.title-h2,
+.paragraph {
+  margin: 0;
+  margin-bottom: 20px;
+}

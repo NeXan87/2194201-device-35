@@ -36,12 +36,15 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
 }
 
 .button {
+  position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 
   font-family: "Raleway", sans-serif;
+  text-align: center;
   color: #000000;
   text-transform: uppercase;
   text-decoration: none;
@@ -49,6 +52,59 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  &_yellow {
+    max-width: 300px;
+    padding: 5px 38px;
+
+    letter-spacing: 0.2em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+
+      width: 100%;
+      height: 22%;
+
+      background-color: #ffe17f;
+
+      transition: height 0.2s;
+    }
+
+    &:hover::before {
+      height: 100%;
+    }
+
+    &:active::before {
+      background-color: #ffcc33;
+    }
+  }
+}
+
+.product-parameters {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 26px;
+  }
+
+  &__title {
+    font-size: 16px;
+  }
+
+  &__description {
+    order: -1;
+    margin: 0;
+    margin-bottom: 12px;
+
+    font-size: 36px;
+  }
 }
 
 @import "fonts";
