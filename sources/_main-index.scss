@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1160px;
   margin: 0 auto;
-  padding-bottom: 35px;
+  margin-bottom: 41px;
 
   &__count {
     position: relative;
@@ -158,8 +158,7 @@
   width: 100%;
   max-width: 1160px;
   margin: 0 auto;
-  padding-top: 7px;
-  padding-bottom: 81px;
+  margin-bottom: 81px;
 
   &__list {
     display: grid;
@@ -229,23 +228,39 @@
 }
 
 .advantages {
-  background-color: #f0f0f0;
+  position: relative;
+
+  margin-bottom: 41px;
+
+  &__background {
+    position: absolute;
+
+    width: 100%;
+    min-height: 290px;
+
+    background-color: #f0f0f0;
+  }
 
   &__wrapper {
-    display: grid;
-    max-width: 1160px;
-    margin: 0 auto;
-    min-height: 319px;
-    grid-template-columns: 280px 1fr;
     position: relative;
     top: -101px;
+
+    display: grid;
+    max-width: 1160px;
+    min-height: 320px;
+    margin: 0 auto;
+
+    grid-template-columns: 280px 1fr;
 
     &::before {
       content: "";
       position: absolute;
+
       width: 7px;
       height: 100%;
+
       background-color: #000000;
+
       grid-column-start: 2;
     }
   }
@@ -270,6 +285,12 @@
     max-width: 160px;
     padding: 0;
     overflow: hidden;
+
+    transition: max-width 0.2s;
+
+    &::before {
+      transition: height 0.2s, opacity 0.2s 0.2s;
+    }
   }
 
   &__button-text {
@@ -290,7 +311,8 @@
     background-color: #000000;
 
     &::before {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
     }
 
     &:hover .advantages__button-text {
@@ -303,58 +325,179 @@
   }
 
   &__inner {
-    padding-left: 14%;
-    grid-column-end: -1;
     align-self: center;
+    padding-left: 14%;
+
+    grid-column-end: -1;
   }
 
   &__description {
-    max-width: 475px;
     position: relative;
+
+    max-width: 475px;
 
     &::after {
       content: "";
       position: absolute;
-      background-repeat: no-repeat;
       top: 3px;
       left: 100%;
+
       margin-left: 17.5%;
+
+      background-repeat: no-repeat;
     }
   }
 
   &_delivery {
     &::after {
-      background-image: url("../images/icons/advantages/advantages-delivery.svg");
       width: 136px;
       height: 165px;
+
+      background-image: url("../images/icons/advantages/advantages-delivery.svg");
     }
   }
 
   &_warranty {
     &::after {
-      background-image: url("../images/icons/advantages/advantages-warranty.svg");
       width: 171px;
       height: 195px;
+
+      background-image: url("../images/icons/advantages/advantages-warranty.svg");
     }
   }
 
   &_credit {
     &::after {
-      background-image: url("../images/icons/advantages/advantages-credit.svg");
       width: 156px;
       height: 189px;
+
+      background-image: url("../images/icons/advantages/advantages-credit.svg");
     }
   }
 
   &__title {
-    font-family: "Raleway", sans-serif;
-    font-size: 50px;
-    line-height: 50px;
     margin: 0;
     margin-bottom: 34px;
+
+    font-size: 50px;
+    line-height: 50px;
+    font-family: "Raleway", sans-serif;
   }
 
   &__text {
     margin: 0;
+  }
+}
+
+.delivery {
+  max-width: 1160px;
+  margin: 0 auto 70px;
+
+  &__link {
+    position: relative;
+
+    display: inline-block;
+    width: 100%;
+    padding: 41px 137px 36px 142px;
+
+    font-size: 20px;
+    line-height: 23px;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    background-color: #f0f0f0;
+
+    @extend %link-style-none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 125px;
+      height: 100%;
+
+      background-color: #ffe17f;
+      background-image: url("../images/icons/delivery.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 43px;
+      bottom: 0;
+
+      width: 40px;
+      height: 40px;
+      margin: auto;
+
+      background-color: #e6e6e6;
+      background-image: url("../images/icons/info.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-blend-mode: overlay;
+      border-radius: 50%;
+    }
+
+    &:hover::before {
+      background-color: #ffc700;
+    }
+
+    &:hover::after {
+      background-blend-mode: normal;
+    }
+
+    &:active {
+      @extend %condition-active;
+    }
+  }
+}
+
+.about {
+  display: grid;
+  max-width: 1160px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+
+  column-gap: 108px;
+
+  grid-template-columns: 1fr 1fr;
+
+  &__wrapper {
+    position: relative;
+
+    padding-top: 47px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 84px;
+      height: 7px;
+
+      background-color: #000000;
+    }
+  }
+
+  &__title {
+    margin-bottom: 48px;
+
+    font-size: 50px;
+    line-height: 50px;
+    font-family: "Raleway", sans-serif;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    color: #444444;
   }
 }
