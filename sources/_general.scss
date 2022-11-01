@@ -49,8 +49,16 @@ body {
   grid-column: 1 / -1;
 }
 
-.title-h2,
+.heading,
 .paragraph {
   margin: 0;
   margin-bottom: 20px;
+}
+
+.heading {
+  font-family: "Raleway", sans-serif;
+}
+
+.paragraph {
+  color: #444444;
 }

@@ -108,6 +108,8 @@
 
     grid-column-end: -1;
     justify-self: start;
+    max-width: 220px;
+    width: 100%;
   }
 
   &__parameters {
@@ -465,7 +467,7 @@
   margin: 0 auto;
   margin-bottom: 70px;
 
-  column-gap: 108px;
+  column-gap: 97px;
 
   grid-template-columns: 1fr 1fr;
 
@@ -487,7 +489,7 @@
     }
   }
 
-  &__title {
+  &__title-h2 {
     margin-bottom: 48px;
 
     font-size: 50px;
@@ -495,9 +497,97 @@
     font-family: "Raleway", sans-serif;
   }
 
+  &__title-h3 {
+    font-weight: 700;
+    font-size: 24px;
+    color: #444444;
+    margin-bottom: 15px;
+  }
+
   &__text {
     margin-bottom: 30px;
 
     color: #444444;
+  }
+
+  &__list {
+    margin-left: 3.5px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  &__item {
+    &::before {
+      background-color: #ffc700;
+    }
+  }
+
+  &__button {
+    max-width: 270px;
+    width: 100%;
+  }
+
+  &_button {
+    max-width: 260px;
+  }
+}
+
+.subscribe {
+  background-color: #f0f0f0;
+
+  &__wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 64px 0 56px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 134px;
+    column-gap: 4.6%;
+  }
+
+  &__title-h2 {
+    grid-column-start: 1;
+    font-size: 50px;
+    line-height: 50px;
+    max-width: 348px;
+    padding-left: 8px;
+  }
+
+  &__text {
+    grid-column-end: -1;
+    padding-top: 10px;
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    grid-row-start: 2;
+  }
+
+  &__label {
+    display: flex;
+    max-width: 810px;
+  }
+
+  &__input {
+    padding: 11px 16px 14px 16px;
+    border-bottom: 3px solid #c4c4c4;
+    flex-grow: 1;
+
+    &:focus {
+      outline: $condition-focus;
+    }
+  }
+
+  &__button {
+    line-height: 21px;
+    letter-spacing: 0.2em;
+    border: 3px solid #c4c4c4;
+    width: 253px;
+  }
+
+  &__free {
+    grid-column-end: -1;
+    grid-row-start: 2;
+    justify-self: end;
   }
 }
