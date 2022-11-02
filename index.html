@@ -268,9 +268,12 @@
             <form class="subscribe__form" action="https://echo.htmlacademy.ru/" method="post">
               <label class="subscribe__label">
                 <span class="visually-hidden">Введите свой e-mail</span>
+                <!-- Класс ошибки для поля ввода "subscribe_error" -->
                 <input class="field subscribe__input" type="email" name="email" placeholder="Ваш e-mail" required>
                 <button class="button subscribe__button" type="submit">Подписаться</button>
               </label>
+              <!-- Класс отображения текстовой ошибки - "subscribe_error-open" -->
+              <span class="subscribe__error-text">Забавный у вас адрес</span>
             </form>
             <span class="subscribe__free">Это бесплатно</span>
           </div>

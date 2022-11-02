@@ -2,7 +2,7 @@
   opacity: 0.6;
 }
 
-.phone-number:active, .social-link:active::before, .footer__logo-link:active, .copyright__svg:active, .delivery__link:active, .products__link:active, .slider__point:active, .slider__button-control:active, .nav-info__link:active, .catalog__link:active, .header__basket-close-button:active, .header__basket-link:active, .header__logo-link:active, .user-nav-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
+.phone-number:active, .social-link:active::before, .footer__logo-link:active, .copyright__svg:active, .subscribe__button:disabled, .subscribe__input:disabled, .delivery__link:active, .products__link:active, .slider__point:active, .slider__button-control:active, .nav-info__link:active, .catalog__link:active, .header__basket-close-button:active, .header__basket-link:active, .header__logo-link:active, .user-nav-link:active, .header__search-button:disabled, .header__search-input:disabled + .header__search-form__icon, .header__search-input:disabled {
   opacity: 0.3;
 }
 
@@ -33,7 +33,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  font-size: 18px;
+  font-size: inherit;
   font-family: "Raleway", sans-serif;
   text-align: center;
   color: #000000;
@@ -606,11 +606,11 @@ body {
   grid-column-end: -1;
 }
 .slider__button {
+  width: 100%;
+  max-width: 220px;
   margin-bottom: 50px;
   grid-column-end: -1;
   justify-self: start;
-  max-width: 220px;
-  width: 100%;
 }
 .slider__parameters {
   grid-column-end: -1;
@@ -885,10 +885,10 @@ body {
   font-family: "Raleway", sans-serif;
 }
 .about__title-h3 {
+  margin-bottom: 15px;
   font-weight: 700;
   font-size: 24px;
   color: #444444;
-  margin-bottom: 15px;
 }
 .about__text {
   margin-bottom: 30px;
@@ -896,15 +896,15 @@ body {
 }
 .about__list {
   margin-left: 3.5px;
-  letter-spacing: -0.02em;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 .about__item::before {
   background-color: #ffc700;
 }
 .about__button {
-  max-width: 270px;
   width: 100%;
+  max-width: 270px;
 }
 .about_button {
   max-width: 260px;
@@ -914,53 +914,101 @@ body {
   background-color: #f0f0f0;
 }
 .subscribe__wrapper {
+  display: grid;
   max-width: 1160px;
   margin: 0 auto;
   padding: 64px 0 56px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 134px;
   -webkit-column-gap: 4.6%;
      -moz-column-gap: 4.6%;
           column-gap: 4.6%;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 124px;
 }
 .subscribe__title-h2 {
-  grid-column-start: 1;
-  font-size: 50px;
-  line-height: 50px;
   max-width: 348px;
   padding-left: 8px;
+  font-size: 50px;
+  line-height: 50px;
+  grid-column-start: 1;
 }
 .subscribe__text {
-  grid-column-end: -1;
   padding-top: 10px;
+  grid-column-end: -1;
 }
 .subscribe__form {
+  position: relative;
   grid-column: 1/-1;
   grid-row-start: 2;
+}
+.subscribe__error-text {
+  position: absolute;
+  top: 100%;
+  display: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ff3d3d;
+}
+.subscribe_error-open {
+  display: block;
 }
 .subscribe__label {
   display: flex;
   max-width: 810px;
 }
 .subscribe__input {
-  padding: 11px 16px 14px 16px;
-  border-bottom: 3px solid #c4c4c4;
   flex-grow: 1;
+  padding: 11px 16px 14px 16px;
+  font-size: inherit;
+  border-bottom: 3px solid #c4c4c4;
 }
 .subscribe__input:focus {
+  z-index: 1;
+  background-color: #dcdcdc;
   outline: 2px solid #af4fff;
 }
+.subscribe_error {
+  border-bottom: 3px solid #ff3d3d;
+}
 .subscribe__button {
+  width: 253px;
+  padding: 15px 10px 15px 15px;
   line-height: 21px;
   letter-spacing: 0.2em;
   border: 3px solid #c4c4c4;
-  width: 253px;
+}
+.subscribe__button:hover, .subscribe__button:active {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
+}
+.subscribe__button:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+.subscribe__button:disabled {
+  pointer-events: none;
 }
 .subscribe__free {
+  position: relative;
+  align-self: center;
+  max-width: 250px;
+  margin-left: 20px;
+  padding-left: 32px;
+  color: #444444;
   grid-column-end: -1;
   grid-row-start: 2;
   justify-self: end;
+}
+.subscribe__free::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15px;
+  height: 14px;
+  margin: auto;
+  background-image: url("../images/icons/status-success.svg");
+  background-repeat: no-repeat;
 }
 
 .copyright__svg {
