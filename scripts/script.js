@@ -8,6 +8,7 @@ let advantagesButton = document.querySelectorAll(".advantages__button");
 let advantagesDescription = document.querySelectorAll(
   ".advantages__description"
 );
+const deliveryLink = document.querySelector(".delivery__link");
 
 basketLink.addEventListener("click", () => {
   event.preventDefault();
@@ -32,6 +33,20 @@ for (let i = 0; i < advantagesButton.length; i++) {
       advantagesDescription[j].classList.add("visually-hidden");
     }
   };
+}
+
+deliveryLink.addEventListener("click", (event) => {
+  event.preventDefault();
+});
+
+deliveryModal.addEventListener("click", closeModal);
+
+function closeModal({ currentTarget, target }) {
+  const deliveryModal = currentTarget;
+  const closeModal = target === deliveryModal;
+  if (closeModal) {
+    deliveryModal.close();
+  }
 }
 
 // document.addEventListener("click", (e) => {

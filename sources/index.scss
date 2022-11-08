@@ -33,6 +33,7 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
 
 .field {
   font-family: inherit;
+  font-size: inherit;
   color: #444444;
   border: 0;
 }
@@ -137,8 +138,56 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
   }
 }
 
+.tooltip {
+  position: relative;
+
+  &__button {
+    width: 26px;
+    height: 26px;
+    background-color: #ffe17f;
+    border-radius: 50%;
+    background-image: url("../images/icons/tooltip-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover + .tooltip__text,
+    &:focus + .tooltip__text {
+      display: block;
+    }
+  }
+
+  &__text {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: -35px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    padding: 19px;
+    max-width: 200px;
+    width: max-content;
+    z-index: 1;
+    margin-top: 10px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 6px;
+      bottom: 100%;
+      right: 40px;
+      background-image: url("../images/icons/tooltip-arrow.svg");
+      background-repeat: no-repeat;
+    }
+  }
+}
+
 @import "fonts";
 @import "general";
 @import "header";
 @import "main-index";
 @import "footer";
+@import "modal";

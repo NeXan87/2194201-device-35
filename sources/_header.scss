@@ -473,6 +473,8 @@
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+    z-index: 1;
+    position: relative;
 
     @extend %link-style-none;
 

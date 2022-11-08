@@ -232,7 +232,7 @@
           </div>
         </section>
         <div class="delivery">
-          <a class="delivery__link" href="#">Доставим редкий товар под заказ</a>
+          <a class="delivery__link" href="#" onclick="window['modal-delivery'].showModal()">Доставим редкий товар под заказ</a>
         </div>
         <section class="about">
           <div class="about__wrapper">
@@ -270,8 +270,8 @@
                 <span class="visually-hidden">Введите свой e-mail</span>
                 <!-- Класс ошибки для поля ввода "subscribe_error" -->
                 <input class="field subscribe__input" type="email" name="email" placeholder="Ваш e-mail" required>
-                <button class="button subscribe__button" type="submit">Подписаться</button>
               </label>
+              <button class="button subscribe__button" type="submit">Подписаться</button>
               <!-- Класс отображения текстовой ошибки - "subscribe_error-open" -->
               <span class="subscribe__error-text">Забавный у вас адрес</span>
             </form>
@@ -331,6 +331,50 @@
         </div>
       </footer>
     </div>
+    <dialog class="modal" id="modal-delivery" onclick="closeModal(event)">
+      <section class="modal__wrapper">
+        <h2 class="heading modal__title">Доставка под заказ</h2>
+        <button class="button modal__close-button" type="button" onclick="window['modal-delivery'].close()">
+          <span class="visually-hidden">Закрыть окно доставки</span>
+        </button>
+        <form class="modal__form" action="https://echo.htmlacademy.ru/" method="post">
+          <label class="modal__input-title modal__input-title_name">
+            <span class="modal__input-text">Ваше имя:</span>
+            <span class="modal__input-inner modal__input-inner_name">
+              <input class="field modal__input" type="text" name="name" placeholder="Введите имя" required>
+            </span>
+            <!-- Для отображение заметки, надо добавить класс "modal__info_show" блоку ниже -->
+            <span class="modal__info modal__info_show">Добавьте имя</span>
+          </label>
+          <!-- Чтобы отобразить сообщение об ошибке, надо добавить класс "modal__input-title_error" блоку ниже -->
+          <label class="modal__input-title modal__input-title_email modal__input-title_error">
+            <span class="modal__input-text">Ваш e-mail:</span>
+            <span class="modal__input-inner modal__input-inner_email">
+              <input class="field modal__input" type="email" name="e-mail" placeholder="Введите e-mail" required>
+            </span>
+            <span class="modal__info modal__info_error-text">Забавный у вас адрес</span>
+          </label>
+          <label class="modal__input-title modal__input-title_comment">
+            <span class="modal__input-text">Что нужно привезти:</span>
+            <span class="modal__input-inner">
+              <input class="field modal__input" type="text" name="comment" placeholder="В свободной форме">
+            </span>
+          </label>
+          <label class="modal__input-title modal__input-title_amount">
+            <span class="modal__input-text">Количество:
+              <span class="tooltip modal__tooltip">
+                <button class="button tooltip__button" type="button" aria-labelledby="tooltip-text"></button>
+                <span class="tooltip__text" id="tooltip-text">Постараемся найти, сколько нужно. Привезём сколько получится по требованиям к провозу багажа.</span>
+              </span>
+            </span>
+            <span class="modal__input-inner">
+              <input class="field modal__input modal__input_number" type="number" name="amount" value="1">
+            </span>
+          </label>
+          <button class="button modal__button-submit button_yellow" type="submit">Отправить</button>
+        </form>
+      </section>
+    </dialog>
     <script src="scripts/script.js"></script>
   </body>
 
