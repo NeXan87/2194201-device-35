@@ -25,7 +25,7 @@
   &__inner {
     display: grid;
     width: 100%;
-    width: 1160px;
+    max-width: 1160px;
     margin: 0 auto;
 
     grid-template-columns: 239px 1fr minmax(300px, 444px) 1.54fr 175px;
