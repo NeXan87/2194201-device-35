@@ -32,9 +32,10 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
 }
 
 .field {
-  font-family: inherit;
   font-size: inherit;
+  font-family: inherit;
   color: #444444;
+
   border: 0;
 }
 
@@ -57,8 +58,19 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
   border: none;
   cursor: pointer;
 
+  &:disabled {
+    pointer-events: none;
+
+    @extend %condition-active;
+  }
+
+  &:focus {
+    z-index: 1;
+  }
+
   &_yellow {
     z-index: 1;
+
     width: max-content;
     padding: 5px 15px;
 
@@ -113,27 +125,32 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
 }
 
 .list {
-  @extend %list-style-none;
-  margin-left: 20px;
   margin-bottom: 30px;
+  margin-left: 20px;
+
   line-height: 20px;
 
+  @extend %list-style-none;
+
   &__item {
-    margin-bottom: 19px;
     position: relative;
+
+    margin-bottom: 19px;
     padding-left: 34px;
 
     &::before {
-      border-radius: 50%;
       content: "";
-      background-color: #000000;
-      width: 8px;
-      height: 8px;
       position: absolute;
-      left: 0;
       top: 0;
       bottom: 0;
+      left: 0;
+
+      width: 8px;
+      height: 8px;
       margin: auto;
+
+      background-color: #000000;
+      border-radius: 50%;
     }
   }
 }
@@ -144,11 +161,16 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
   &__button {
     width: 26px;
     height: 26px;
+
     background-color: #ffe17f;
-    border-radius: 50%;
     background-image: url("../images/icons/tooltip-icon.svg");
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 50%;
+
+    &:focus {
+      outline: $condition-focus;
+    }
 
     &:hover + .tooltip__text,
     &:focus + .tooltip__text {
@@ -157,28 +179,33 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
   }
 
   &__text {
-    display: none;
     position: absolute;
     top: 100%;
     right: -35px;
-    background-color: #000000;
-    color: #ffffff;
+    z-index: 1;
+
+    display: none;
+    width: max-content;
+    max-width: 200px;
+    margin-top: 10px;
+    padding: 19px;
+
+    font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 400;
-    padding: 19px;
-    max-width: 200px;
-    width: max-content;
-    z-index: 1;
-    margin-top: 10px;
+    color: #ffffff;
+
+    background-color: #000000;
 
     &::before {
       content: "";
       position: absolute;
+      right: 40px;
+      bottom: 100%;
+
       width: 14px;
       height: 6px;
-      bottom: 100%;
-      right: 40px;
+
       background-image: url("../images/icons/tooltip-arrow.svg");
       background-repeat: no-repeat;
     }

@@ -20,6 +20,17 @@
     background-color: rgba(240, 240, 240, 0.9);
   }
 
+  &__wrapper-tooltip {
+    grid-column: 4;
+  }
+
+  &__inner-tooltip {
+    position: relative;
+
+    display: inline-block;
+    margin-bottom: 7px;
+  }
+
   &__title {
     margin: 0;
     padding-right: 10px;
@@ -67,8 +78,9 @@
 
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
 
-    &:nth-child(-n + 2) {
+    &_margin {
       margin-bottom: 20px;
     }
 
@@ -84,10 +96,6 @@
       grid-column: 1 / span 3;
     }
 
-    &_amount {
-      grid-column: 4;
-    }
-
     &_error {
       color: #ff3d3d;
 
@@ -99,10 +107,16 @@
         display: block;
       }
     }
+
+    &_display {
+      display: inline;
+    }
   }
 
-  &__input-inner {
-    position: relative;
+  &__inner-input {
+    display: grid;
+
+    grid-template-columns: repeat(3, 60px);
 
     &::after {
       content: "";
@@ -139,12 +153,13 @@
   }
 
   &__input-text {
+    position: relative;
+
     margin-bottom: 7px;
 
     font-weight: 700;
     color: #000000;
     letter-spacing: -0.02em;
-    position: relative;
   }
 
   &__input {
@@ -162,6 +177,8 @@
       text-align: center;
 
       -moz-appearance: textfield;
+      grid-column: 1 / -1;
+      grid-row-start: 1;
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
@@ -208,7 +225,38 @@
 
   &__tooltip {
     position: absolute;
-    margin-left: 10px;
+
     margin-top: 2px;
+    margin-left: 10px;
+  }
+
+  &__button-input {
+    background-repeat: no-repeat;
+    background-position: center;
+
+    grid-row-start: 1;
+
+    &:hover {
+      @extend %condition-hover;
+
+      & ~ .field {
+        background-color: #dcdcdc;
+      }
+    }
+
+    &:active {
+      @extend %condition-active;
+    }
+
+    &_minus {
+      background-image: url("../images/icons/input-minus.svg");
+
+      grid-column-start: 1;
+    }
+    &_plus {
+      background-image: url("../images/icons/input-plus.svg");
+
+      grid-column-start: 3;
+    }
   }
 }

@@ -2,7 +2,7 @@
   position: relative;
 
   display: inline-block;
-  padding: 8px 0px 8px 26px;
+  padding: 8px 0 8px 26px;
 
   line-height: 21px;
   color: $body-color;
@@ -57,10 +57,11 @@
 }
 
 .header {
-  max-width: 1160px;
   position: relative;
-  margin: 0 auto;
+
   display: grid;
+  max-width: 1160px;
+  margin: 0 auto;
   padding: 46px 60px 0 60px;
 
   column-gap: 26px;
@@ -429,8 +430,8 @@
   }
 
   &__item {
-    max-width: 252px;
     width: 100%;
+    max-width: 252px;
   }
 
   &__link {
@@ -466,15 +467,16 @@
   }
 
   &__link {
+    position: relative;
+    z-index: 1;
+
     display: inline-block;
-    padding: 10px 0px;
+    padding: 10px 0;
 
     line-height: 21px;
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    z-index: 1;
-    position: relative;
 
     @extend %link-style-none;
 

@@ -232,7 +232,7 @@
           </div>
         </section>
         <div class="delivery">
-          <a class="delivery__link" href="#" onclick="window['modal-delivery'].showModal()">Доставим редкий товар под заказ</a>
+          <a class="delivery__link" href="#">Доставим редкий товар под заказ</a>
         </div>
         <section class="about">
           <div class="about__wrapper">
@@ -331,26 +331,26 @@
         </div>
       </footer>
     </div>
-    <dialog class="modal" id="modal-delivery" onclick="closeModal(event)">
+    <dialog class="modal" id="modal-delivery">
       <section class="modal__wrapper">
         <h2 class="heading modal__title">Доставка под заказ</h2>
-        <button class="button modal__close-button" type="button" onclick="window['modal-delivery'].close()">
+        <button class="button modal__close-button" type="button">
           <span class="visually-hidden">Закрыть окно доставки</span>
         </button>
         <form class="modal__form" action="https://echo.htmlacademy.ru/" method="post">
-          <label class="modal__input-title modal__input-title_name">
+          <label class="modal__input-title modal__input-title_name modal__input-title_margin">
             <span class="modal__input-text">Ваше имя:</span>
             <span class="modal__input-inner modal__input-inner_name">
-              <input class="field modal__input" type="text" name="name" placeholder="Введите имя" required>
+              <input class="field modal__input modal__input_name" type="text" name="name" placeholder="Введите имя">
             </span>
             <!-- Для отображение заметки, надо добавить класс "modal__info_show" блоку ниже -->
-            <span class="modal__info modal__info_show">Добавьте имя</span>
+            <span class="modal__info modal__info_name">Добавьте имя</span>
           </label>
           <!-- Чтобы отобразить сообщение об ошибке, надо добавить класс "modal__input-title_error" блоку ниже -->
-          <label class="modal__input-title modal__input-title_email modal__input-title_error">
+          <label class="modal__input-title modal__input-title_email modal__input-title_margin">
             <span class="modal__input-text">Ваш e-mail:</span>
             <span class="modal__input-inner modal__input-inner_email">
-              <input class="field modal__input" type="email" name="e-mail" placeholder="Введите e-mail" required>
+              <input class="field modal__input modal__input_email" type="text" name="e-mail" placeholder="Введите e-mail">
             </span>
             <span class="modal__info modal__info_error-text">Забавный у вас адрес</span>
           </label>
@@ -360,22 +360,32 @@
               <input class="field modal__input" type="text" name="comment" placeholder="В свободной форме">
             </span>
           </label>
-          <label class="modal__input-title modal__input-title_amount">
-            <span class="modal__input-text">Количество:
+          <div class="modal__wrapper-tooltip">
+            <span class="modal__inner-tooltip">
+              <label class="modal__input-title modal__input-title_display" for="input-amount">
+                <span class="modal__input-text">Количество:</span>
+              </label>
               <span class="tooltip modal__tooltip">
                 <button class="button tooltip__button" type="button" aria-labelledby="tooltip-text"></button>
                 <span class="tooltip__text" id="tooltip-text">Постараемся найти, сколько нужно. Привезём сколько получится по требованиям к провозу багажа.</span>
               </span>
             </span>
-            <span class="modal__input-inner">
-              <input class="field modal__input modal__input_number" type="number" name="amount" value="1">
-            </span>
-          </label>
+            <div class="modal__inner-input">
+              <button class="button modal__button-input modal__button-input_minus" type="button">
+                <span class="visually-hidden">Уменьшить количество</span>
+              </button>
+              <button class="button modal__button-input modal__button-input_plus" type="button">
+                <span class="visually-hidden">Увеличить количество</span>
+              </button>
+              <input class="field modal__input modal__input_number" id="input-amount" type="number" name="amount" value="1">
+            </div>
+          </div>
           <button class="button modal__button-submit button_yellow" type="submit">Отправить</button>
         </form>
       </section>
     </dialog>
     <script src="scripts/script.js"></script>
+    <script src="scripts/modal.js"></script>
   </body>
 
 </html>
