@@ -209,6 +209,7 @@ html {
 }
 
 body {
+  min-width: 1160px;
   height: 100vh;
   margin: 0;
   font-style: normal;
@@ -301,7 +302,7 @@ body {
 .header {
   position: relative;
   display: grid;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   padding: 46px 60px 0 60px;
   -webkit-column-gap: 26px;
@@ -602,7 +603,7 @@ body {
 }
 .slider {
   width: 100%;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   margin-bottom: 41px;
 }
@@ -773,7 +774,7 @@ body {
   position: relative;
   top: -101px;
   display: grid;
-  max-width: 1160px;
+  width: 1160px;
   min-height: 320px;
   margin: 0 auto;
   grid-template-columns: 280px 1fr;
@@ -877,7 +878,7 @@ body {
 }
 
 .delivery {
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto 70px;
 }
 .delivery__link {
@@ -929,7 +930,7 @@ body {
 }
 .about {
   display: grid;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   margin-bottom: 70px;
   -webkit-column-gap: 97px;
@@ -987,7 +988,7 @@ body {
 }
 .subscribe__wrapper {
   display: grid;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   padding: 64px 0 56px 0;
   -webkit-column-gap: 4.6%;
@@ -1103,7 +1104,7 @@ body {
 .footer__inner {
   display: grid;
   width: 100%;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   grid-template-columns: 239px 1fr minmax(300px, 444px) 1.54fr 175px;
 }

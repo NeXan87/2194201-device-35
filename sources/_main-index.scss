@@ -1,6 +1,6 @@
 .slider {
   width: 100%;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   margin-bottom: 41px;
 
@@ -248,7 +248,7 @@
     top: -101px;
 
     display: grid;
-    max-width: 1160px;
+    width: 1160px;
     min-height: 320px;
     margin: 0 auto;
 
@@ -392,7 +392,7 @@
 }
 
 .delivery {
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto 70px;
 
   &__link {
@@ -463,7 +463,7 @@
 
 .about {
   display: grid;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
   margin-bottom: 70px;
 
@@ -539,7 +539,7 @@
 
   &__wrapper {
     display: grid;
-    max-width: 1160px;
+    width: 1160px;
     margin: 0 auto;
     padding: 64px 0 56px 0;
 
