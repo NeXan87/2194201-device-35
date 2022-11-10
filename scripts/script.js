@@ -9,12 +9,6 @@ let advantagesDescription = document.querySelectorAll(
   ".advantages__description"
 );
 
-// Открытие попапа по клику на корзину
-basketLink.addEventListener("click", (event) => {
-  event.preventDefault();
-  basketContainer.classList.toggle("header_basket-open");
-});
-
 catalogLink.addEventListener("click", (event) => {
   event.preventDefault();
   catalogLink.classList.toggle("catalog_minus");
@@ -36,10 +30,22 @@ for (let i = 0; i < advantagesButton.length; i++) {
   };
 }
 
-// document.addEventListener("click", (e) => {
-//   const withinBoundaries = e.composedPath().includes(basketContainer);
+// Открытие попапа по клику на корзину
+basketLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  basketContainer.classList.toggle("header_basket-open");
+});
 
-//   if (!withinBoundaries) {
-//     basketContainer.classList.remove("header_basket-open");
-//   }
-// });
+// Закрыть попап корзины по клику вне блока
+document.addEventListener("click", (event) => {
+  const target = event.target;
+  const itsBasketContainer =
+    target == basketContainer || basketContainer.contains(target);
+  const itsBasketLink = target == basketLink;
+  const basketContainerIsActive =
+    basketContainer.classList.contains("header_basket-open");
+
+  if (!itsBasketContainer && !itsBasketLink && basketContainerIsActive) {
+    basketContainer.classList.toggle("header_basket-open");
+  }
+});
