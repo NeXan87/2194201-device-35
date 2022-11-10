@@ -11,8 +11,8 @@ let parameterDesc = document.querySelectorAll(
   ".product-parameters__description"
 );
 let paginationList = document.querySelector(".slider__pagination");
-let paginationItem = document.querySelectorAll(".slider__pagination-item");
-let paginationButton = document.querySelectorAll(".slider__point");
+let paginationItems = document.querySelectorAll(".slider__pagination-item");
+let paginationButtons = document.querySelectorAll(".slider__point");
 
 const sliderItems = {
   element_1: {
@@ -62,7 +62,7 @@ const sliderItems = {
 const elements = Object.keys(sliderItems).length;
 
 // Расчет количества элементов в слайдере и вставка пагинации на страницу
-for (let i = 1; i <= elements; i++) {
+for (let i = 2; i <= elements; i++) {
   const fragment = document.createDocumentFragment();
 
   const li = document.createElement("li");
@@ -70,11 +70,12 @@ for (let i = 1; i <= elements; i++) {
 
   const button = document.createElement("button");
   button.classList.add("button", "slider__point");
-  if (i === 1) button.classList.add("slider_current-point");
+  button.setAttribute("type", "button");
+  button.setAttribute("id", `element_${i}`);
 
   const span = document.createElement("span");
   span.classList.add("visually-hidden");
-  span.textContent = `Товар ${i}`;
+  span.textContent = `${i} товар`;
 
   const pagination = fragment
     .appendChild(li)
@@ -82,6 +83,21 @@ for (let i = 1; i <= elements; i++) {
     .appendChild(span);
 
   paginationList.appendChild(fragment);
+
+  if (i === elements) {
+    paginationButtons = document.querySelectorAll(".slider__point");
+  }
 }
 
-console.log(paginationList);
+for (let button of paginationButtons) {
+  button.onclick = function () {
+    for (const key in sliderItems) {
+      if (key === button.getAttribute("id")) {
+        image.src = sliderItems[key].src;
+        title.textContent = sliderItems[key].h2;
+        description.textContent = sliderItems[key].desc;
+        pageLink.getAttribute("href", sliderItems[key].link);
+      }
+    }
+  };
+}
