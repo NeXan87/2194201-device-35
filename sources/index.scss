@@ -59,9 +59,7 @@ $condition-focus: 2px solid #af4fff; // фокусная линия
   cursor: pointer;
 
   &:disabled {
-    pointer-events: none;
-
-    @extend %condition-active;
+    @extend %input-disabled;
   }
 
   &:focus {
