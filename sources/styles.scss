@@ -1,0 +1,42 @@
+$input-placeholder: rgba(
+  $color: #000000,
+  $alpha: 0.3,
+); // Цвет текста placeholder
+$condition-focus: 2px solid #af4fff; // фокусная обводка
+$default-color: #000000; // Цвет текста по умолчанию
+$default-width: 1160px; // Ширина контейнера по умолчанию
+$default-font: "Rubik", sans-serif; // Семейство шрифтов по умолчанию
+$title-font: "Raleway", sans-serif; // Семейство шрифтов для заголовков и кнопок
+
+%condition-hover {
+  opacity: 0.6;
+}
+
+%condition-active {
+  opacity: 0.3;
+}
+
+%input-disabled {
+  pointer-events: none;
+
+  @extend %condition-active;
+}
+
+%list-style-none {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+%link-style-none {
+  color: $default-color;
+  text-decoration: none;
+}
+
+@import "fonts";
+@import "general";
+@import "header";
+@import "main-index";
+@import "footer";
+@import "modal";

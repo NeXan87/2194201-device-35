@@ -5,7 +5,7 @@
   padding: 8px 0 8px 26px;
 
   line-height: 21px;
-  color: $body-color;
+  color: $default-color;
   text-decoration: none;
 
   &::before {
@@ -60,7 +60,7 @@
   position: relative;
 
   display: grid;
-  width: 1160px;
+  width: $default-width;
   margin: 0 auto;
   padding: 46px 60px 0 60px;
 
@@ -156,7 +156,7 @@
 
     font-size: 16px;
     line-height: 21px;
-    font-family: "Rubik", sans-serif;
+    font-family: inherit;
     text-transform: none;
 
     border: 2px solid #000000;
@@ -178,7 +178,7 @@
     }
 
     &:disabled {
-      color: #000000;
+      color: $default-color;
 
       background-color: transparent;
 
@@ -277,6 +277,8 @@
 
   &__basket-link {
     display: flex;
+
+    @extend %link-style-none;
 
     &:hover {
       @extend %condition-hover;
@@ -474,7 +476,7 @@
     padding: 10px 0;
 
     line-height: 21px;
-    font-family: "Raleway", sans-serif;
+    font-family: $title-font;
     text-transform: uppercase;
     letter-spacing: 0.2em;
 

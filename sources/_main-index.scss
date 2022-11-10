@@ -1,6 +1,6 @@
 .slider {
   width: 100%;
-  width: 1160px;
+  width: $default-width;
   margin: 0 auto;
   margin-bottom: 41px;
 
@@ -93,7 +93,7 @@
 
     font-size: 50px;
     line-height: 50px;
-    font-family: "Raleway", sans-serif;
+    font-family: $title-font;
 
     grid-column-end: -1;
   }
@@ -158,7 +158,7 @@
 
 .products {
   width: 100%;
-  max-width: 1160px;
+  max-width: $default-width;
   margin: 0 auto;
   margin-bottom: 81px;
 
@@ -224,7 +224,7 @@
     font-weight: 800;
     font-size: 18px;
     line-height: 24px;
-    font-family: "Raleway", sans-serif;
+    font-family: $title-font;
     letter-spacing: -0.02em;
   }
 }
@@ -248,7 +248,7 @@
     top: -101px;
 
     display: grid;
-    width: 1160px;
+    width: $default-width;
     min-height: 320px;
     margin: 0 auto;
 
@@ -383,7 +383,7 @@
 
     font-size: 50px;
     line-height: 50px;
-    font-family: "Raleway", sans-serif;
+    font-family: $title-font;
   }
 
   &__text {
@@ -392,7 +392,7 @@
 }
 
 .delivery {
-  width: 1160px;
+  width: $default-width;
   margin: 0 auto 70px;
 
   &__link {
@@ -404,7 +404,7 @@
 
     font-size: 20px;
     line-height: 23px;
-    font-family: "Raleway", sans-serif;
+    font-family: $title-font;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -463,7 +463,7 @@
 
 .about {
   display: grid;
-  width: 1160px;
+  width: $default-width;
   margin: 0 auto;
   margin-bottom: 70px;
 
@@ -494,7 +494,7 @@
 
     font-size: 50px;
     line-height: 50px;
-    font-family: "Raleway", sans-serif;
+    font-family: $title-font;
   }
 
   &__title-h3 {
@@ -539,7 +539,7 @@
 
   &__wrapper {
     display: grid;
-    width: 1160px;
+    width: $default-width;
     margin: 0 auto;
     padding: 64px 0 56px 0;
 
