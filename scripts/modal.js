@@ -35,6 +35,8 @@ deliveryLink.addEventListener("click", (event) => {
 closeButtonModal.addEventListener("click", () => {
   modalDialog.close();
   document.body.style.overflow = "";
+  modalErrorShow.classList.remove("modal__input-title_error");
+  modalInfoShow.classList.remove("modal__info_show");
 });
 
 // Закрытие модального окна кликом по подложке
@@ -46,6 +48,8 @@ function closeModal({ currentTarget, target }) {
   if (closeModal) {
     modalDialog.close();
     document.body.style.overflow = "";
+    modalErrorShow.classList.remove("modal__input-title_error");
+    modalInfoShow.classList.remove("modal__info_show");
   }
 }
 
