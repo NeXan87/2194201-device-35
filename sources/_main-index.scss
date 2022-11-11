@@ -4,6 +4,11 @@
   margin: 0 auto;
   margin-bottom: 41px;
 
+  &_opacity {
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
   &__count {
     position: relative;
 

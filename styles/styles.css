@@ -604,6 +604,10 @@ body {
   margin: 0 auto;
   margin-bottom: 41px;
 }
+.slider_opacity {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
 .slider__count {
   position: relative;
   padding-right: 48px;

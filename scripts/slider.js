@@ -91,12 +91,13 @@ for (let button of paginationButtons) {
   button.onclick = function () {
     for (const key in sliderItems) {
       if (key === button.getAttribute("id")) {
-        updateSlider(key, button);
-        updateParameters(key);
+        transitionElement();
+        setTimeout(updateSlider, 200, key, button);
+        setTimeout(updateParameters, 200, key);
 
         currentElement = +button.getAttribute("id").replace(/[^0-9]/gim, "");
 
-        updateCurrentNumber();
+        setTimeout(updateCurrentNumber, 200);
       }
     }
     deleteButtonCurrent(button);
@@ -126,10 +127,11 @@ function doPrevNextSlider() {
   const key = `element_${currentElement}`;
   const button = paginationButtons[currentElement - 1];
 
-  updateSlider(key);
-  updateParameters(key);
+  transitionElement();
+  setTimeout(updateSlider, 200, key);
+  setTimeout(updateParameters, 200, key);
   deleteButtonCurrent(button);
-  updateCurrentNumber(button);
+  setTimeout(updateCurrentNumber, 200);
 }
 
 // Функция обновления слайдера
@@ -138,6 +140,20 @@ function updateSlider(key) {
   title.textContent = sliderItems[key].h2;
   description.textContent = sliderItems[key].desc;
   pageLink.getAttribute("href", sliderItems[key].link);
+}
+
+function transitionElement() {
+  countNumber.style.opacity = "0";
+  title.style.opacity = "0";
+  description.style.opacity = "0";
+  parameterWrapper.style.opacity = "0";
+
+  setTimeout(() => {
+    countNumber.style.opacity = null;
+    title.style.opacity = null;
+    description.style.opacity = null;
+    parameterWrapper.style.opacity = null;
+  }, 200);
 }
 
 // Функция удаления класса с прежней активной кнопки пагинации и добавление текущей
