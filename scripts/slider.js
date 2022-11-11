@@ -142,14 +142,17 @@ function updateSlider(key) {
   pageLink.getAttribute("href", sliderItems[key].link);
 }
 
+// Функция плавного перехода между элементами
 function transitionElement() {
   countNumber.style.opacity = "0";
+  image.style.opacity = "0";
   title.style.opacity = "0";
   description.style.opacity = "0";
   parameterWrapper.style.opacity = "0";
 
   setTimeout(() => {
     countNumber.style.opacity = null;
+    image.style.opacity = null;
     title.style.opacity = null;
     description.style.opacity = null;
     parameterWrapper.style.opacity = null;
