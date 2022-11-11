@@ -622,17 +622,18 @@ body {
   position: relative;
   top: -28px;
   display: grid;
+  min-height: 440px;
   -webkit-column-gap: 40px;
      -moz-column-gap: 40px;
           column-gap: 40px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, -webkit-min-content);
-  grid-template-rows: repeat(6, min-content);
+  grid-template-rows: 1fr repeat(5, -webkit-min-content);
+  grid-template-rows: 1fr repeat(5, min-content);
 }
 .slider__images {
   position: relative;
   top: -25px;
-  align-self: start;
+  align-self: center;
   grid-column: 1;
   grid-row: 1/span 4;
 }

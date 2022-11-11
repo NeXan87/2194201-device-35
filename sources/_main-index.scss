@@ -29,18 +29,19 @@
     top: -28px;
 
     display: grid;
+    min-height: 440px;
 
     column-gap: 40px;
 
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(6, min-content);
+    grid-template-rows: 1fr repeat(5, min-content);
   }
 
   &__images {
     position: relative;
     top: -25px;
 
-    align-self: start;
+    align-self: center;
 
     grid-column: 1;
     grid-row: 1 / span 4;

@@ -5,14 +5,13 @@ const nextButton = document.querySelector(".slider_next");
 let title = document.querySelector(".slider__title");
 let description = document.querySelector(".slider__description");
 let pageLink = document.querySelector(".slider__button");
-let parameterList = document.querySelectorAll(".product-parameters__list");
-let parameterTitle = document.querySelectorAll(".product-parameters__title");
-let parameterDesc = document.querySelectorAll(
-  ".product-parameters__description"
-);
+let parameterWrapper = document.querySelector(".product-parameters");
 let paginationList = document.querySelector(".slider__pagination");
-let paginationItems = document.querySelectorAll(".slider__pagination-item");
-let paginationButtons = document.querySelectorAll(".slider__point");
+let currentElement = 1;
+
+let paginationButtons = function () {
+  paginationButtons = document.querySelectorAll(".slider__point");
+};
 
 const sliderItems = {
   element_1: {
@@ -61,7 +60,7 @@ const sliderItems = {
 
 const elements = Object.keys(sliderItems).length;
 
-// Расчет количества элементов в слайдере и вставка пагинации на страницу
+// Расчет количества кнопок пагинации
 for (let i = 2; i <= elements; i++) {
   const fragment = document.createDocumentFragment();
 
@@ -84,20 +83,105 @@ for (let i = 2; i <= elements; i++) {
 
   paginationList.appendChild(fragment);
 
-  if (i === elements) {
-    paginationButtons = document.querySelectorAll(".slider__point");
-  }
+  if (i === elements) paginationButtons();
 }
 
+// Прослушивание кликов по кнопкам пагинации
 for (let button of paginationButtons) {
   button.onclick = function () {
     for (const key in sliderItems) {
       if (key === button.getAttribute("id")) {
-        image.src = sliderItems[key].src;
-        title.textContent = sliderItems[key].h2;
-        description.textContent = sliderItems[key].desc;
-        pageLink.getAttribute("href", sliderItems[key].link);
+        updateSlider(key, button);
+        updateParameters(key);
+
+        currentElement = +button.getAttribute("id").replace(/[^0-9]/gim, "");
+
+        updateCurrentNumber();
       }
     }
+    deleteButtonCurrent(button);
   };
+}
+
+// Прослушивание клика по кнопке "Назад"
+prevButton.addEventListener("click", () => {
+  if (currentElement > 1) currentElement--;
+  else currentElement = elements;
+
+  doPrevNextSlider();
+});
+
+// Прослушивание клика по кнопке "Вперед"
+nextButton.addEventListener("click", () => {
+  if (currentElement < elements) {
+    currentElement++;
+  } else {
+    currentElement = 1;
+  }
+
+  doPrevNextSlider();
+});
+
+function doPrevNextSlider() {
+  const key = `element_${currentElement}`;
+  const button = paginationButtons[currentElement - 1];
+
+  updateSlider(key);
+  updateParameters(key);
+  deleteButtonCurrent(button);
+  updateCurrentNumber(button);
+}
+
+// Функция обновления слайдера
+function updateSlider(key) {
+  image.src = sliderItems[key].src;
+  title.textContent = sliderItems[key].h2;
+  description.textContent = sliderItems[key].desc;
+  pageLink.getAttribute("href", sliderItems[key].link);
+}
+
+// Функция удаления класса с прежней активной кнопки пагинации и добавление текущей
+function deleteButtonCurrent(button) {
+  for (let buttonCurrent of paginationButtons) {
+    if (!buttonCurrent.classList.contains("slider_current-point")) continue;
+    buttonCurrent.classList.remove("slider_current-point");
+  }
+
+  button.classList.add("slider_current-point");
+}
+
+//Функция обновления характеристик товара
+function updateParameters(key) {
+  parameterWrapper.innerHTML = "";
+
+  for (let i = 1; i <= elements; i++) {
+    if (!sliderItems[key][`param_${i}`]) continue;
+
+    const fragment = document.createDocumentFragment();
+
+    const dl = document.createElement("dl");
+    dl.classList.add("product-parameters__list");
+
+    const dt = document.createElement("dt");
+    dt.classList.add("product-parameters__title");
+    dt.textContent = sliderItems[key][`param_${i}`].dTitle;
+
+    const dd = document.createElement("dd");
+    dd.classList.add("product-parameters__description");
+    dd.textContent = sliderItems[key][`param_${i}`].dDesc;
+
+    let pagination = fragment.appendChild(dl).appendChild(dt);
+    pagination = fragment.appendChild(dl).appendChild(dd);
+
+    parameterWrapper.appendChild(fragment);
+  }
+}
+
+// Функция обновления номера текущего элемента в слайдере
+function updateCurrentNumber() {
+  if (currentElement < 10) {
+    countNumber.textContent = "0" + currentElement;
+  } else {
+    countNumber.textContent = currentElement;
+  }
 }
