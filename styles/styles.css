@@ -1248,7 +1248,6 @@ body {
 }
 .modal__inner-tooltip {
   position: relative;
-  display: inline-block;
   margin-bottom: 7px;
 }
 .modal__title {
