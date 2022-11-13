@@ -77,11 +77,6 @@ const sliderItems = {
   },
 };
 
-// Автоматическое перелистывание (вкл., откл.)
-if (twistingSlider) {
-  twisting();
-}
-
 // Считывание списка параметров элемента слайдера в html для 1 элемента в объекте
 for (let i = 1; i <= parameterList.length; i++) {
   sliderItems.element_1[`param_${i}`] = new Object();
@@ -130,11 +125,6 @@ for (let i = 2; i <= elements; i++) {
   }
 }
 
-// Функция включения автоматического перелистывания
-function twisting() {
-  autoTwisting = setInterval(nextElement, twistingTime * 1000);
-}
-
 // Прослушивание кликов по кнопкам пагинации
 for (let button of paginationButtons) {
   button.onclick = function () {
@@ -147,15 +137,25 @@ for (let button of paginationButtons) {
   };
 }
 
-// Остановка таймера при наведении курсора мыши на слайдер
-sliderWrapper.addEventListener("mouseenter", () => {
-  clearInterval(autoTwisting);
-});
+// Функция включения автоматического перелистывания
+function twisting() {
+  autoTwisting = setInterval(nextElement, twistingTime * 1000);
+}
 
-// Запуск таймера при покидании курсора мыши за пределы слайдера
-sliderWrapper.addEventListener("mouseleave", () => {
+// Автоматическое перелистывание (вкл., откл.)
+if (twistingSlider) {
   twisting();
-});
+
+  // Остановка таймера при наведении курсора мыши на слайдер
+  sliderWrapper.addEventListener("mouseenter", () => {
+    clearInterval(autoTwisting);
+  });
+
+  // Запуск таймера при покидании курсора мыши за пределы слайдера
+  sliderWrapper.addEventListener("mouseleave", () => {
+    twisting();
+  });
+}
 
 // Прослушивание клика по кнопке "Назад"
 prevButton.addEventListener("click", () => {
