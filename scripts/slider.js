@@ -5,7 +5,7 @@ const prevButton = document.querySelector(".slider_prev");
 const nextButton = document.querySelector(".slider_next");
 let countNumber = document.querySelector(".slider__count-number");
 let imageLink = document.querySelector(".slider__link_img");
-let image = document.querySelector(".slider__image");
+let image = document.querySelectorAll(".slider__image");
 let title = document.querySelector(".slider__title");
 let description = document.querySelector(".slider__description");
 let pageLink = document.querySelector(".slider__button");
@@ -32,9 +32,9 @@ const sliderItems = {
     desc: description.innerText,
     link: pageLink.getAttribute("href"),
     img: {
-      src: image.getAttribute("src"),
-      width: image.getAttribute("width"),
-      height: image.getAttribute("height"),
+      src: image[0].getAttribute("src"),
+      width: image[0].getAttribute("width"),
+      height: image[0].getAttribute("height"),
     },
   },
   element_2: {
@@ -85,9 +85,16 @@ for (let i = 1; i <= parameterList.length; i++) {
 const elements = Object.keys(sliderItems).length;
 let autoTwisting = setInterval(nextElement, twistingTime * 1000);
 
-// Расчет количества кнопок пагинации
+// Расчет количества изображений и кнопок пагинации
 for (let i = 2; i <= elements; i++) {
-  const fragment = document.createDocumentFragment();
+  const fragmentButtons = document.createDocumentFragment();
+  const images = document.createDocumentFragment();
+
+  const img = document.createElement("img");
+  img.classList.add("slider__image", "visually-hidden");
+  img.src = sliderItems[`element_${i}`].img.src;
+  img.setAttribute("width", sliderItems[`element_${i}`].img.width);
+  img.setAttribute("height", sliderItems[`element_${i}`].img.height);
 
   const li = document.createElement("li");
   li.classList.add("slider__pagination-item");
@@ -101,14 +108,20 @@ for (let i = 2; i <= elements; i++) {
   span.classList.add("visually-hidden");
   span.textContent = `${i} товар`;
 
-  const pagination = fragment
+  const imagesList = images.appendChild(img);
+
+  const pagination = fragmentButtons
     .appendChild(li)
     .appendChild(button)
     .appendChild(span);
 
-  paginationList.appendChild(fragment);
+  imageLink.appendChild(images);
+  paginationList.appendChild(fragmentButtons);
 
-  if (i === elements) paginationButtons();
+  if (i === elements) {
+    paginationButtons();
+    image = document.querySelectorAll(".slider__image");
+  }
 }
 
 // Прослушивание кликов по кнопкам пагинации
@@ -176,25 +189,27 @@ function changeElement(key, button) {
 // Функция обновления слайдера
 function updateSlider(key) {
   imageLink.setAttribute("href", sliderItems[key].link);
-  image.src = sliderItems[key].img.src;
-  image.setAttribute("width", sliderItems[key].img.width);
-  image.setAttribute("height", sliderItems[key].img.height);
   title.textContent = sliderItems[key].h2;
   description.textContent = sliderItems[key].desc;
   pageLink.setAttribute("href", sliderItems[key].link);
+
+  for (let i = 0; i < image.length; i++) {
+    image[i].classList.add("visually-hidden");
+    image[currentElement - 1].classList.remove("visually-hidden");
+  }
 }
 
 // Функция плавного перехода между элементами
 function transitionElement() {
   countNumber.style.opacity = "0";
-  image.style.opacity = "0";
+  imageLink.style.opacity = "0";
   title.style.opacity = "0";
   description.style.opacity = "0";
   parameterWrapper.style.opacity = "0";
 
   setTimeout(() => {
     countNumber.style.opacity = null;
-    image.style.opacity = null;
+    imageLink.style.opacity = null;
     title.style.opacity = null;
     description.style.opacity = null;
     parameterWrapper.style.opacity = null;
