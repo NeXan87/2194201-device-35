@@ -6,6 +6,7 @@
 
   &_opacity {
     opacity: 1;
+
     transition: opacity 0.2s;
   }
 
@@ -42,6 +43,10 @@
     grid-template-rows: 1fr repeat(5, min-content);
   }
 
+  &__link_img {
+    display: block;
+  }
+
   &__images {
     position: relative;
     top: -25px;
@@ -62,24 +67,26 @@
     object-fit: contain;
   }
 
-  &__buttons {
+  &__button-control {
     position: absolute;
     top: 50%;
-    left: 0;
 
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    transform: translateY(-50%);
-  }
-
-  &__button-control {
     width: 20px;
     height: 60px;
 
     background-image: url("../images/icons/slider-arrow.svg");
     background-repeat: no-repeat;
+    transform: translateY(-50%);
+
+    &_prev {
+      left: 0;
+    }
+
+    &_next {
+      right: 0;
+
+      transform: translateY(-50%) scale(-1, 1);
+    }
 
     &:hover {
       @extend %condition-hover;
@@ -88,10 +95,6 @@
     &:active {
       @extend %condition-active;
     }
-  }
-
-  &_next {
-    transform: scale(-1, 1);
   }
 
   &__title {
@@ -145,6 +148,7 @@
 
     border: 2px solid #000000;
     border-radius: 50%;
+
     transition: background-color 0.4s;
 
     &:hover {

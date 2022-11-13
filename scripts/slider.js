@@ -1,8 +1,8 @@
 "use strict";
 
 const sliderWrapper = document.querySelector(".slider");
-const prevButton = document.querySelector(".slider_prev");
-const nextButton = document.querySelector(".slider_next");
+const prevButton = document.querySelector(".slider__button-control_prev");
+const nextButton = document.querySelector(".slider__button-control_next");
 let countNumber = document.querySelector(".slider__count-number");
 let imageLink = document.querySelector(".slider__link_img");
 let image = document.querySelectorAll(".slider__image");
