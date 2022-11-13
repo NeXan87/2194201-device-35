@@ -16,6 +16,7 @@ let parameterDesc = document.querySelectorAll(
   ".product-parameters__description"
 );
 let paginationList = document.querySelector(".slider__pagination");
+let autoTwisting;
 let currentElement = 1;
 
 let paginationButtons = function () {
@@ -24,6 +25,7 @@ let paginationButtons = function () {
 
 const transitionTime = 200; // мсек., время перехода между элементами слайдера
 const twistingTime = 7; // сек., время между перелистываниями элементов слайдера
+const twistingSlider = true; // перелистывание слайдера, true или false
 
 const sliderItems = {
   element_1: {
@@ -75,6 +77,11 @@ const sliderItems = {
   },
 };
 
+// Автоматическое перелистывание (вкл., откл.)
+if (twistingSlider) {
+  twisting();
+}
+
 // Считывание списка параметров элемента слайдера в html для 1 элемента в объекте
 for (let i = 1; i <= parameterList.length; i++) {
   sliderItems.element_1[`param_${i}`] = new Object();
@@ -83,7 +90,6 @@ for (let i = 1; i <= parameterList.length; i++) {
 }
 
 const elements = Object.keys(sliderItems).length;
-let autoTwisting = setInterval(nextElement, twistingTime * 1000);
 
 // Расчет количества изображений и кнопок пагинации
 for (let i = 2; i <= elements; i++) {
@@ -124,6 +130,11 @@ for (let i = 2; i <= elements; i++) {
   }
 }
 
+// Функция включения автоматического перелистывания
+function twisting() {
+  autoTwisting = setInterval(nextElement, twistingTime * 1000);
+}
+
 // Прослушивание кликов по кнопкам пагинации
 for (let button of paginationButtons) {
   button.onclick = function () {
@@ -143,7 +154,7 @@ sliderWrapper.addEventListener("mouseenter", () => {
 
 // Запуск таймера при покидании курсора мыши за пределы слайдера
 sliderWrapper.addEventListener("mouseleave", () => {
-  autoTwisting = setInterval(nextElement, twistingTime * 1000);
+  twisting();
 });
 
 // Прослушивание клика по кнопке "Назад"
