@@ -1,3 +1,5 @@
+"use strict";
+
 const sliderWrapper = document.querySelector(".slider");
 const prevButton = document.querySelector(".slider_prev");
 const nextButton = document.querySelector(".slider_next");
