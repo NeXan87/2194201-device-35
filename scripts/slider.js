@@ -1,11 +1,18 @@
-let countNumber = document.querySelector(".slider__count-number");
-let image = document.querySelector(".slider__image");
+const sliderWrapper = document.querySelector(".slider");
 const prevButton = document.querySelector(".slider_prev");
 const nextButton = document.querySelector(".slider_next");
+let countNumber = document.querySelector(".slider__count-number");
+let imageLink = document.querySelector(".slider__link_img");
+let image = document.querySelector(".slider__image");
 let title = document.querySelector(".slider__title");
 let description = document.querySelector(".slider__description");
 let pageLink = document.querySelector(".slider__button");
 let parameterWrapper = document.querySelector(".product-parameters");
+let parameterList = document.querySelectorAll(".product-parameters__list");
+let parameterTitle = document.querySelectorAll(".product-parameters__title");
+let parameterDesc = document.querySelectorAll(
+  ".product-parameters__description"
+);
 let paginationList = document.querySelector(".slider__pagination");
 let currentElement = 1;
 
@@ -13,36 +20,44 @@ let paginationButtons = function () {
   paginationButtons = document.querySelectorAll(".slider__point");
 };
 
+const transitionTime = 200; // мсек., время перехода между элементами слайдера
+const twistingTime = 7; // сек., время между перелистываниями элементов слайдера
+
 const sliderItems = {
   element_1: {
-    src: "images/products/slider/product-1.png",
-    h2: "Порхает как бабочка, жалит как пчела!",
-    desc: "Этот обычный, на первый взгляд, квадрокоптер оснащен мощным лазером, замаскированным под стандартную камеру.",
-    link: "#",
-    param_1: {
-      dTitle: "Дальность полета",
-      dDesc: "800 м",
-    },
-    param_2: {
-      dTitle: "Радиус поражения",
-      dDesc: "50 м",
+    // Первый элемент слайдера добавляется из html (на случай отключенного JS в браузере пользователя), остальные - в объекте
+    h2: title.innerText,
+    desc: description.innerText,
+    link: pageLink.getAttribute("href"),
+    img: {
+      src: image.getAttribute("src"),
+      width: image.getAttribute("width"),
+      height: image.getAttribute("height"),
     },
   },
   element_2: {
-    src: "images/products/slider/product-2.png",
     h2: "Худеем правильно!",
     desc: "Мотивирующие фитнес-браслеты помогут найти в себе силы не пропускать занятия и соблюдать диету.",
     link: "#",
+    img: {
+      src: "images/products/slider/product-2.png",
+      width: 560,
+      height: 560,
+    },
     param_1: {
       dTitle: "Без подзарядки",
       dDesc: "48 часов",
     },
   },
   element_3: {
-    src: "images/products/slider/product-3.png",
     h2: "Делай селфи, как Бен Стиллер! ",
     desc: "Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 кг.",
     link: "#",
+    img: {
+      src: "images/products/slider/product-3.png",
+      width: 560,
+      height: 560,
+    },
     param_1: {
       dTitle: "Длина палки",
       dDesc: "8,5 м",
@@ -58,7 +73,15 @@ const sliderItems = {
   },
 };
 
+// Считывание списка параметров элемента слайдера в html для 1 элемента в объекте
+for (let i = 1; i <= parameterList.length; i++) {
+  sliderItems.element_1[`param_${i}`] = new Object();
+  sliderItems.element_1[`param_${i}`].dTitle = parameterTitle[i - 1].innerText;
+  sliderItems.element_1[`param_${i}`].dDesc = parameterDesc[i - 1].innerText;
+}
+
 const elements = Object.keys(sliderItems).length;
+let autoTwisting = setInterval(nextElement, twistingTime * 1000);
 
 // Расчет количества кнопок пагинации
 for (let i = 2; i <= elements; i++) {
@@ -90,56 +113,73 @@ for (let i = 2; i <= elements; i++) {
 for (let button of paginationButtons) {
   button.onclick = function () {
     for (const key in sliderItems) {
-      if (key === button.getAttribute("id")) {
-        transitionElement();
-        setTimeout(updateSlider, 200, key, button);
-        setTimeout(updateParameters, 200, key);
+      if (key !== button.getAttribute("id")) continue;
+      currentElement = +button.getAttribute("id").replace(/[^0-9]/gim, "");
 
-        currentElement = +button.getAttribute("id").replace(/[^0-9]/gim, "");
-
-        setTimeout(updateCurrentNumber, 200);
-      }
+      changeElement(key, button);
     }
-    deleteButtonCurrent(button);
   };
 }
 
+// Остановка таймера при наведении курсора мыши на слайдер
+sliderWrapper.addEventListener("mouseenter", () => {
+  clearInterval(autoTwisting);
+});
+
+// Запуск таймера при покидании курсора мыши за пределы слайдера
+sliderWrapper.addEventListener("mouseleave", () => {
+  autoTwisting = setInterval(nextElement, twistingTime * 1000);
+});
+
 // Прослушивание клика по кнопке "Назад"
 prevButton.addEventListener("click", () => {
-  if (currentElement > 1) currentElement--;
-  else currentElement = elements;
-
-  doPrevNextSlider();
+  prevElement();
 });
 
 // Прослушивание клика по кнопке "Вперед"
 nextButton.addEventListener("click", () => {
-  if (currentElement < elements) {
-    currentElement++;
-  } else {
-    currentElement = 1;
-  }
-
-  doPrevNextSlider();
+  nextElement();
 });
 
-function doPrevNextSlider() {
-  const key = `element_${currentElement}`;
-  const button = paginationButtons[currentElement - 1];
+// Функция переключения элемента слайдера назад на 1
+function prevElement() {
+  if (currentElement > 1) currentElement--;
+  else currentElement = elements;
+
+  changeElement();
+}
+
+// Функция переключения элемента слайдера вперед на 1
+function nextElement() {
+  if (currentElement < elements) currentElement++;
+  else currentElement = 1;
+
+  changeElement();
+}
+
+// Вызов функций
+function changeElement(key, button) {
+  if (typeof key === "undefined" && typeof button === "undefined") {
+    key = `element_${currentElement}`;
+    button = paginationButtons[currentElement - 1];
+  }
 
   transitionElement();
-  setTimeout(updateSlider, 200, key);
-  setTimeout(updateParameters, 200, key);
+  setTimeout(updateSlider, transitionTime, key, button);
+  setTimeout(updateParameters, transitionTime, key);
+  setTimeout(updateCurrentNumber, transitionTime);
   deleteButtonCurrent(button);
-  setTimeout(updateCurrentNumber, 200);
 }
 
 // Функция обновления слайдера
 function updateSlider(key) {
-  image.src = sliderItems[key].src;
+  imageLink.setAttribute("href", sliderItems[key].link);
+  image.src = sliderItems[key].img.src;
+  image.setAttribute("width", sliderItems[key].img.width);
+  image.setAttribute("height", sliderItems[key].img.height);
   title.textContent = sliderItems[key].h2;
   description.textContent = sliderItems[key].desc;
-  pageLink.getAttribute("href", sliderItems[key].link);
+  pageLink.setAttribute("href", sliderItems[key].link);
 }
 
 // Функция плавного перехода между элементами
@@ -156,7 +196,7 @@ function transitionElement() {
     title.style.opacity = null;
     description.style.opacity = null;
     parameterWrapper.style.opacity = null;
-  }, 200);
+  }, transitionTime);
 }
 
 // Функция удаления класса с прежней активной кнопки пагинации и добавление текущей
