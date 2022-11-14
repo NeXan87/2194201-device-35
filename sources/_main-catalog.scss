@@ -1,0 +1,99 @@
+.production {
+  display: grid;
+  width: $default-width;
+  margin: 0 auto;
+
+  grid-template-columns: 320px 1fr;
+
+  &__heading {
+    padding: 35px 21px 34px 60px;
+
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  &__filter {
+    background-color: #f0f0f0;
+
+    grid-column-start: 1;
+  }
+
+  &__wrapper {
+    grid-column-end: -1;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+
+    background-color: #f0f0f0;
+  }
+
+  &__title-select {
+    font-size: 16px;
+    line-height: 19px;
+    font-family: $title-font;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  &__select {
+    width: 160px;
+    margin: 0 auto;
+
+    background-color: transparent;
+    border: 0;
+  }
+
+  &__button {
+    position: relative;
+
+    display: inline;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: auto;
+
+      background-image: url("../images/icons/arrow-top.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.2;
+    }
+
+    &_arrow-down {
+      &:before {
+        transform: scale(1, -1);
+      }
+    }
+
+    &:hover:before {
+      opacity: 0.5;
+    }
+
+    &:active:before {
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    @extend %list-style-none;
+    grid-column-end: -1;
+    padding: 70px 40px 78px 40px;
+  }
+}

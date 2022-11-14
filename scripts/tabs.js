@@ -1,3 +1,5 @@
+"use strict";
+
 let advantagesInner = document.querySelector(".advantages__inner");
 let advantagesButton = document.querySelectorAll(".advantages__button");
 let advantagesDescription = document.querySelectorAll(

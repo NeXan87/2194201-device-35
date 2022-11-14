@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Academy: Девайс</title>
+    <link rel="stylesheet" href="styles/styles.min.css">
+    <link rel="icon" href="images/icons/favicon.png" type="image/png">
+  </head>
+
+  <body>
+
+    <div class="grid-container">
+
+      <header class="header">
+        <a class="header__logo-link" href="index.html">
+          <img src="images/logo-header.svg" width="145" height="36" alt="Логотип магазина Девайс">
+        </a>
+        <form class="header__search-form" action="https://echo.htmlacademy.ru/" method="post">
+          <label class="header__search-title">
+            <span class="visually-hidden">Найти товары в магазине Девайс</span>
+            <input class="field header__search-input" type="text" name="search" placeholder="Поиск по сайту" required>
+            <span class="header__search-icon"></span>
+          </label>
+          <button class="header__search-button button" type="submit">Найти</button>
+        </form>
+        <nav class="header__user-navigation">
+          <a class="user-nav-link user-signin-link header__user-item" href="#">Войти</a>
+          <a class="user-nav-link user-compare-link header__product-item" href="#">Сравнить</a>
+          <div class="header__product-item">
+            <a class="user-nav-link user-basket-link" href="#">Корзина
+              <span class="header__basket-count">2</span>
+            </a>
+            <!-- Чтобы открыть поповер с корзиной, нужно добавить класс "header_basket-open" -->
+            <div class="header__basket-container">
+              <ul class="header__basket-list">
+                <li class="header__basket-item">
+                  <a class="header__basket-link" href="#">
+                    <img class="header__basket-thumb" src="images/products/amateur-selfie-stick-small.jpg" width="39" height="43" alt="Любительская селфи-палка">
+                    <h2 class="header__basket-title">Любительская селфи-палка</h2>
+                  </a>
+                  <button class="header__basket-close-button" type="button">
+                    <span class="visually-hidden">Удалить товар из корзины</span>
+                  </button>
+                </li>
+                <li class="header__basket-item">
+                  <a class="header__basket-link" href="#">
+                    <img class="header__basket-thumb" src="images/products/professional-selfie-stick-small.jpg" width="39" height="43" alt="Профессиональная селфи-палка">
+                    <h2 class="header__basket-title">Профессиональная селфи-палка</h2>
+                  </a>
+                  <button class="header__basket-close-button" type="button">
+                    <span class="visually-hidden">Удалить товар из корзины</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="header__basket-info">
+                <span class="header__basket-total">Товаров:
+                  <span class="header__basket-total-count">2</span>
+                </span>
+                <span class="header__basket-price">Сумма:
+                  <span class="header__basket-sum">2000</span> ₽
+                </span>
+              </div>
+              <a class="button header__basket-open-button" href="#">Открыть корзину</a>
+            </div>
+          </div>
+        </nav>
+        <div class="catalog header__catalog">
+          <a class="button catalog__link-menu" href="catalog.html">Каталог товаров</a>
+          <button class="button catalog__button" type="button">
+            <span class="visually-hidden">Открыть меню с каталогом товаров</span>
+          </button>
+          <!-- Чтобы открыть каталог, нужно добавить класс "catalog_open" -->
+          <ul class="catalog__list">
+            <li class="catalog__item">
+              <a class="catalog__link" href="#">Виртуальная реальность</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#">Моноподы для cелфи</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#">Экшн-камеры</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#">Фитнес-браслеты</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#">Умные часы</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#">Квадрокоптеры</a>
+            </li>
+          </ul>
+        </div>
+        <nav class="nav-info header__info-navigation">
+          <ul class="nav-info__list">
+            <li class="nav-info__item">
+              <a class="nav-info__link" href="#">Доставка</a>
+            </li>
+            <li class="nav-info__item">
+              <a class="nav-info__link" href="#">Гарантия</a>
+            </li>
+            <li class="nav-info__item">
+              <a class="nav-info__link" href="#">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main main_production">
+        <section class="production">
+          <div class="production__heading">
+            <h2 class="heading production__title">Моноподы для селфи</h2>
+            <div class="breadcrumbs">
+              <a class="breadcrumbs__link" href="index.html">Главная</a>
+              <a class="breadcrumbs__link" href="#">Каталог товаров</a>
+              <span class="breadcrumbs__link">Моноподы для селфи</span>
+            </div>
+          </div>
+          <aside class="production__filter"></aside>
+          <div class="production__wrapper">
+            <div class="production__controls">
+              <label class="production__title-select" for="sorting">Сортировка:</label>
+              <select class="select production__select" name="sorting" id="sorting">
+                <option value="popular" selected>Популярные</option>
+                <option value="cheap">Дешевые</option>
+                <option value="expensive">Дорогие</option>
+              </select>
+              <div class="production__direction">
+                <button class="button production__button" type="button">
+                  <span class="visually-hidden">От большего к меньшему</span>
+                </button>
+                <button class="button production__button production__button_arrow-down" type="button">
+                  <span class="visually-hidden">От меньшего к большему</span>
+                </button>
+              </div>
+            </div>
+            <ul class="card production__list">
+              <li class="card__item">
+                <a class="card__link" href="#">
+                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                  <span class="card__img-inner">
+                    <img class="card__img" src="images/products/amateur-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                    <span class="button button_yellow card__more">Подробнее</span>
+                  </span>
+                  <h3 class="heading card__title">Любительская селфи-палка</h3>
+                  <span class="card__price">500 ₽</span>
+                </a>
+              </li>
+              <li class="card__item">
+                <a class="card__link" href="#">
+                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                  <span class="card__img-inner">
+                    <img class="card__img" src="images/products/professional-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                    <span class="button button_yellow card__more">Подробнее</span>
+                  </span>
+                  <h3 class="heading card__title">Профессиональная селфи-палка</h3>
+                  <span class="card__price">1500 ₽</span>
+                </a>
+              </li>
+              <li class="card__item">
+                <a class="card__link" href="#">
+                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                  <span class="card__img-inner">
+                    <img class="card__img" src="images/products/unsinkable-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                    <span class="button button_yellow card__more">Подробнее</span>
+                  </span>
+                  <h3 class="heading card__title">Непотопляемая селфи-палка</h3>
+                  <span class="card__price">2500 ₽</span>
+                </a>
+              </li>
+              <li class="card__item">
+                <a class="card__link" href="#">
+                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                  <span class="card__img-inner">
+                    <img class="card__img" src="images/products/selfie-stick-follow-me-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                    <span class="button button_yellow card__more">Подробнее</span>
+                  </span>
+                  <h3 class="heading card__title">Селфи-палка «Следуй за мной»</h3>
+                  <span class="card__price">1500 ₽</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__contacts">
+            <a class="footer__logo-link" href="index.html">
+              <img src="images/logo-footer.svg" width="145" height="36" alt="Логотип магазина Девайс">
+            </a>
+            <address class="footer__address">Санкт-Петербург, набережная реки Карповки, 5, литера П.</address>
+          </div>
+          <div class="footer__info-wrapper">
+            <nav class="nav-info footer__info-navigation">
+              <ul class="nav-info__list footer_nav-info_list">
+                <li class="nav-info__item footer_nav-info_margin">
+                  <a class="nav-info__link footer_nav-info_link" href="#">Доставка</a>
+                </li>
+                <li class="nav-info__item footer_nav-info_margin">
+                  <a class="nav-info__link footer_nav-info_link" href="#">Гарантия</a>
+                </li>
+                <li class="nav-info__item footer_nav-info_margin">
+                  <a class="nav-info__link footer_nav-info_link" href="#">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <ul class="social-list footer__social-wrapper">
+              <li class="social-item footer__social-item">
+                <a class="social-link footer__social-link social-link_telegram" href="https://t.me/htmlacademy" target="_blank" rel="nofollow">
+                  <span class="visually-hidden">Станица в Телеграм</span>
+                </a>
+              </li>
+              <li class="social-item footer__social-item">
+                <a class="social-link footer__social-link social-link_youtube" href="https://www.youtube.com/user/htmlacademyru" target="_blank" rel="nofollow">
+                  <span class="visually-hidden">Станица в YouTube</span>
+                </a>
+              </li>
+              <li class="social-item footer__social-item">
+                <a class="social-link footer__social-link social-link_twitter" href="https://twitter.com/htmlacademy_ru" target="_blank" rel="nofollow">
+                  <span class="visually-hidden">Станица в Твиттере</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="phone footer__phone-wrapper">
+            <a class="phone-number footer__phone" href="tel:+78128121212">Тел.: +7 (812) 812-12-12</a>
+            <a class="copyright footer__copyright" href="https://htmlacademy.ru/" aria-label="Сайт разработчиков макета" target="_blank">
+              <svg class="copyright__svg footer_copyright-svg" width="115" height="33" viewBox="0 0 115 33" xmlns="http://www.w3.org/2000/svg" role="img">
+                <path d="M0 12.9v2.6h2.5v-2.6H0ZM11.6 4.5c-1.6 0-2.8.7-3.6 1.7h-.1V0h-2v15.5h2v-5.3c0-2.1 1.3-3.6 3.3-3.6 1.8 0 2.9 1.4 2.9 3.2v5.7h2V9.4c.1-3-1.8-4.9-4.5-4.9ZM26.6 4.8h-4.8V1.1h-2v3.8h-1.9v2h1.9v6c0 1.7 1 2.7 2.7 2.7h4.1v-2h-3.7c-.7 0-1.1-.4-1.1-1.1V6.8h4.8v-2ZM41.1 4.6c-1.6 0-2.9.8-3.5 2.1h-.1c-.6-1.2-1.8-2.1-3.4-2.1-1.4 0-2.5.8-3.1 1.8h-.1V4.8H29v10.6h2V10c0-2 1-3.5 2.6-3.5 1.5 0 2.4 1 2.4 2.6v6.3h2V9.8c0-2.4 1.4-3.3 2.6-3.3 1.5 0 2.4 1 2.4 2.6v6.3h2V8.9c.1-2.5-1.4-4.3-3.9-4.3ZM47.8 12.7c0 1.7 1 2.7 2.8 2.7h2v-2h-1.7c-.7 0-1.1-.4-1.1-1.1V0h-2v12.7ZM28.9 19.7c-.9-1.1-2.2-1.8-3.9-1.8-3.1 0-5.4 2.3-5.4 5.6s2.3 5.6 5.4 5.6c1.8 0 3-.8 3.8-1.9h.1v1.6h2V18.2h-2v1.5Zm-3.6 7.4c-2.2 0-3.6-1.6-3.6-3.6s1.4-3.6 3.6-3.6 3.6 1.6 3.6 3.6c0 1.9-1.4 3.6-3.6 3.6ZM44.2 22c-.5-2.4-2.6-4.1-5.4-4.1a5.4 5.4 0 0 0-5.6 5.6c0 3.1 2.2 5.6 5.6 5.6 2.8 0 4.9-1.8 5.4-4.2h-2.1a3.4 3.4 0 0 1-3.3 2.3c-2.2 0-3.6-1.6-3.6-3.6s1.4-3.6 3.6-3.6c1.6 0 2.8 1 3.3 2.2h2.1V22ZM55.1 19.7c-.9-1.1-2.2-1.8-3.9-1.8-3.1 0-5.4 2.3-5.4 5.6s2.3 5.6 5.4 5.6c1.8 0 3-.8 3.8-1.9h.1v1.6h2V18.2h-2v1.5Zm-3.6 7.4c-2.2 0-3.6-1.6-3.6-3.6s1.4-3.6 3.6-3.6 3.6 1.6 3.6 3.6c0 1.9-1.5 3.6-3.6 3.6ZM68.7 19.8c-.9-1.1-2.2-1.9-3.9-1.9-3.1 0-5.4 2.3-5.4 5.6s2.2 5.6 5.4 5.6c1.7 0 3-.8 3.8-1.8h.1v1.5h2V13.4h-2v6.4Zm-3.6 7.3c-2.2 0-3.6-1.6-3.6-3.6s1.4-3.6 3.6-3.6 3.6 1.6 3.6 3.6c-.1 2-1.5 3.6-3.6 3.6ZM78.3 17.9c-3.3 0-5.5 2.5-5.5 5.6 0 3 2.1 5.6 5.5 5.6 2.5 0 4.5-1.3 5.2-3.6h-2.1c-.5 1-1.6 1.6-3 1.6-1.9 0-3.3-1.3-3.4-2.9h8.8c.2-3.6-2-6.3-5.5-6.3Zm0 1.9c1.7 0 3 1 3.3 2.6h-6.5c.3-1.5 1.5-2.6 3.2-2.6ZM98.2 17.9c-1.6 0-2.9.8-3.6 2h-.1c-.6-1.2-1.8-2-3.4-2-1.4 0-2.5.7-3.1 1.8v-1.5h-1.9v10.6h2v-5.4c0-2 1-3.4 2.6-3.5 1.5 0 2.4 1 2.4 2.6v6.3h2v-5.6c0-2.4 1.4-3.3 2.6-3.3 1.5 0 2.4 1 2.4 2.6v6.3h2v-6.5c.1-2.6-1.4-4.4-3.9-4.4ZM109.4 27l-3.6-8.9h-2.2l4.8 11.6c-.3.9-.7 1.2-1.7 1.2h-2.5v2h2.5c1.8 0 2.8-.8 3.5-2.6l4.7-12.2h-2.1l-3.4 8.9Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <dialog class="modal" id="modal-delivery">
+      <section class="modal__wrapper">
+        <h2 class="heading modal__title">Доставка под заказ</h2>
+        <button class="button modal__close-button" type="button">
+          <span class="visually-hidden">Закрыть окно доставки</span>
+        </button>
+        <form class="modal__form" action="https://echo.htmlacademy.ru/" method="post">
+          <label class="modal__input-title modal__input-title_name modal__input-title_margin">
+            <span class="modal__input-text">Ваше имя:</span>
+            <span class="modal__input-inner modal__input-inner_name">
+              <input class="field modal__input modal__input_name" type="text" name="name" placeholder="Введите имя">
+            </span>
+            <!-- Для отображение заметки, надо добавить класс "modal__info_show" блоку ниже -->
+            <span class="modal__info modal__info_name">Добавьте имя</span>
+          </label>
+          <!-- Чтобы отобразить сообщение об ошибке, надо добавить класс "modal__input-title_error" блоку ниже -->
+          <label class="modal__input-title modal__input-title_email modal__input-title_margin">
+            <span class="modal__input-text">Ваш e-mail:</span>
+            <span class="modal__input-inner modal__input-inner_email">
+              <input class="field modal__input modal__input_email" type="text" name="e-mail" placeholder="Введите e-mail">
+            </span>
+            <span class="modal__info modal__info_error-text">Забавный у вас адрес</span>
+          </label>
+          <label class="modal__input-title modal__input-title_comment">
+            <span class="modal__input-text">Что нужно привезти:</span>
+            <span class="modal__input-inner">
+              <input class="field modal__input" type="text" name="comment" placeholder="В свободной форме">
+            </span>
+          </label>
+          <div class="modal__wrapper-tooltip">
+            <span class="modal__inner-tooltip">
+              <label class="modal__input-title modal__input-title_display" for="input-amount">
+                <span class="modal__input-text">Количество:</span>
+              </label>
+              <span class="tooltip modal__tooltip">
+                <button class="button tooltip__button" type="button" aria-labelledby="tooltip-text"></button>
+                <span class="tooltip__text" id="tooltip-text">Постараемся найти, сколько нужно. Привезём сколько получится по требованиям к провозу багажа.</span>
+              </span>
+            </span>
+            <div class="modal__inner-input">
+              <button class="button modal__button-input modal__button-input_minus" type="button">
+                <span class="visually-hidden">Уменьшить количество</span>
+              </button>
+              <button class="button modal__button-input modal__button-input_plus" type="button">
+                <span class="visually-hidden">Увеличить количество</span>
+              </button>
+              <input class="field modal__input modal__input_number" id="input-amount" type="number" name="amount" value="1">
+            </div>
+          </div>
+          <button class="button modal__button-submit button_yellow" type="submit">Отправить</button>
+        </form>
+      </section>
+    </dialog>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/slider.js"></script>
+    <script src="scripts/tabs.js"></script>
+  </body>
+
+</html>

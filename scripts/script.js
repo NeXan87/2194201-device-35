@@ -5,8 +5,7 @@ let basketContainer = document.querySelector(".header__basket-container");
 let catalogLink = document.querySelector(".catalog__button");
 let catalogContainer = document.querySelector(".catalog__list");
 
-catalogLink.addEventListener("click", (event) => {
-  event.preventDefault();
+catalogLink.addEventListener("click", () => {
   catalogLink.classList.toggle("catalog_minus");
   catalogContainer.classList.toggle("catalog_open");
 });
