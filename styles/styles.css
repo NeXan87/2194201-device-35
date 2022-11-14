@@ -843,6 +843,7 @@ body {
 .advantages__inner {
   align-self: center;
   padding-left: 14%;
+  transition: opacity 0.2s;
   grid-column-end: -1;
 }
 .advantages__description {
