@@ -122,31 +122,55 @@
               <div class="production__filter-heading">Фильтр:</div>
               <fieldset class="production__filter-group">
                 <legend class="production__filter-title">Стоимость</legend>
+                <div class="production__range-scale">
+                  <div class="production__range-bar">
+                    <div class="production__range-wrapper production__range-wrapper_min">
+                      <button class="production__range-toggle " type="button">
+                        <span class="visually-hidden">Выбрать минимальную стоимость</span>
+                      </button>
+                      <label class="production__range-text">
+                        <span class="production__range-price-text">от</span>
+                        <input class="production__range-price-input" type="text" name="price-min" value="0">
+                        <span class="production__range-price">0</span>
+                      </label>
+                    </div>
+                    <div class="production__range-wrapper production__range-wrapper_max">
+                      <button class="production__range-toggle" type="button">
+                        <span class="visually-hidden">Выбрать максимальную стоимость</span>
+                      </button>
+                      <label class="production__range-text">
+                        <span class="production__range-price-text">до</span>
+                        <input class="production__range-price-input" type="text" name="price-max" value="5000">
+                        <span class="production__range-price">5000</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </fieldset>
               <fieldset class="production__filter-group">
                 <legend class="production__filter-title">Цвет</legend>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_checkbox" name="color" type="checkbox" value="black" checked>
+                  <input class="production__filter-input production__filter-input_checkbox visually-hidden" name="color" type="checkbox" value="black" checked>
                   <span class="production__filter-input-2 production__filter-input-2_checkbox"></span>
                   <span class="production__filter-text">Черный</span>
                 </label>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_checkbox" name="color" type="checkbox" value="white" checked>
+                  <input class="production__filter-input production__filter-input_checkbox visually-hidden" name="color" type="checkbox" value="white" checked>
                   <span class="production__filter-input-2 production__filter-input-2_checkbox"></span>
                   <span class="production__filter-text">Белый</span>
                 </label>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_checkbox" name="color" type="checkbox" value="blue">
+                  <input class="production__filter-input production__filter-input_checkbox visually-hidden" name="color" type="checkbox" value="blue">
                   <span class="production__filter-input-2 production__filter-input-2_checkbox"></span>
                   <span class="production__filter-text">Синий</span>
                 </label>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_checkbox" name="color" type="checkbox" value="red">
+                  <input class="production__filter-input production__filter-input_checkbox visually-hidden" name="color" type="checkbox" value="red">
                   <span class="production__filter-input-2 production__filter-input-2_checkbox"></span>
                   <span class="production__filter-text">Красный</span>
                 </label>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_checkbox" name="color" type="checkbox" value="pink">
+                  <input class="production__filter-input production__filter-input_checkbox visually-hidden" name="color" type="checkbox" value="pink">
                   <span class="production__filter-input-2 production__filter-input-2_checkbox"></span>
                   <span class="production__filter-text">Розовый</span>
                 </label>
@@ -154,12 +178,12 @@
               <fieldset class="production__filter-group">
                 <legend class="production__filter-title">Bluetooth</legend>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_radio" name="bluetooth" type="radio" value="yes" checked>
+                  <input class="production__filter-input production__filter-input_radio visually-hidden" name="bluetooth" type="radio" value="yes" checked>
                   <span class="production__filter-input-2 production__filter-input-2_radio"></span>
                   <span class="production__filter-text">Есть</span>
                 </label>
                 <label class="production__filter-inner">
-                  <input class="production__filter-input production__filter-input_radio" name="bluetooth" type="radio" value="no">
+                  <input class="production__filter-input production__filter-input_radio visually-hidden" name="bluetooth" type="radio" value="no">
                   <span class="production__filter-input-2 production__filter-input-2_radio"></span>
                   <span class="production__filter-text">Нет</span>
                 </label>
