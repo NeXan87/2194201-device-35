@@ -215,10 +215,6 @@ body {
     background-position: center;
     border-radius: 50%;
 
-    &:focus {
-      outline: $condition-focus;
-    }
-
     &:hover + .tooltip__text,
     &:focus + .tooltip__text {
       display: block;

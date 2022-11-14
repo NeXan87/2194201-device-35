@@ -185,7 +185,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: #dcdcdc;
     }
 
