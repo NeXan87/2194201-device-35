@@ -92,8 +92,13 @@
   }
 
   &__list {
+    padding: 70px 40px 0 40px;
+
     @extend %list-style-none;
     grid-column-end: -1;
-    padding: 70px 40px 78px 40px;
+  }
+
+  &__load-more {
+    margin-bottom: 44px;
   }
 }
