@@ -108,106 +108,152 @@
       </header>
 
       <main class="main main_production">
-        <section class="production">
-          <div class="production__heading">
-            <h2 class="heading production__title">Моноподы для селфи</h2>
-            <div class="breadcrumbs">
-              <a class="breadcrumbs__link" href="index.html">Главная</a>
-              <a class="breadcrumbs__link" href="#">Каталог товаров</a>
-              <span class="breadcrumbs__link">Моноподы для селфи</span>
-            </div>
+        <header class="production__heading">
+          <h2 class="heading production__title">Моноподы для селфи</h2>
+          <div class="breadcrumbs production_breadcrumbs">
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <a class="breadcrumbs__link" href="#">Каталог товаров</a>
+            <span class="breadcrumbs__link">Моноподы для селфи</span>
           </div>
-          <aside class="production__filter"></aside>
+        </header>
+        <section class="production">
           <div class="production__wrapper">
-            <div class="production__controls">
-              <label class="production__title-select" for="sorting">Сортировка:</label>
-              <select class="select production__select" name="sorting" id="sorting">
-                <option value="popular" selected>Популярные</option>
-                <option value="cheap">Дешевые</option>
-                <option value="expensive">Дорогие</option>
-              </select>
-              <div class="production__direction">
-                <button class="button production__button" type="button">
-                  <span class="visually-hidden">От меньшего к большему</span>
-                </button>
-                <button class="button production__button production__button_arrow-down" type="button">
-                  <span class="visually-hidden">От большего к меньшему</span>
-                </button>
+            <form class="production__filter" action="https://echo.htmlacademy.ru/" method="get">
+              <div class="production__filter-heading">Фильтр:</div>
+              <fieldset class="production__filter-group">
+                <legend class="production__filter-title">Стоимость</legend>
+              </fieldset>
+              <fieldset class="production__filter-group">
+                <legend class="production__filter-title">Цвет</legend>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="color" type="checkbox" value="black" checked>
+                  <span class="production__filter-checkbox"></span>
+                  <span class="production__filter-text">Черный</span>
+                </label>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="color" type="checkbox" value="white" checked>
+                  <span class="production__filter-checkbox"></span>
+                  <span class="production__filter-text">Белый</span>
+                </label>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="color" type="checkbox" value="blue">
+                  <span class="production__filter-checkbox"></span>
+                  <span class="production__filter-text">Синий</span>
+                </label>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="color" type="checkbox" value="red">
+                  <span class="production__filter-checkbox"></span>
+                  <span class="production__filter-text">Красный</span>
+                </label>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="color" type="checkbox" value="pink">
+                  <span class="production__filter-checkbox"></span>
+                  <span class="production__filter-text">Розовый</span>
+                </label>
+              </fieldset>
+              <fieldset class="production__filter-group">
+                <legend class="production__filter-title">Bluetooth</legend>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="bluetooth" type="radio" value="yes" checked>
+                  <span class="production__filter-radio"></span>
+                  <span class="production__filter-text">Есть</span>
+                </label>
+                <label class="production__filter-inner">
+                  <input class="production__filter-input" name="bluetooth" type="radio" value="no">
+                  <span class="production__filter-radio"></span>
+                  <span class="production__filter-text">Нет</span>
+                </label>
+              </fieldset>
+              <button class="button button_yellow production__filter-button" type="submit">Показать</button>
+            </form>
+            <div class="production__inner">
+              <div class="production__controls">
+                <label class="production__title-select" for="sorting">Сортировка:</label>
+                <select class="select production__select" name="sorting" id="sorting">
+                  <option value="popular" selected>Популярные</option>
+                  <option value="cheap">Дешевые</option>
+                  <option value="expensive">Дорогие</option>
+                </select>
+                <div class="production__direction">
+                  <button class="button production__button" type="button">
+                    <span class="visually-hidden">От меньшего к большему</span>
+                  </button>
+                  <button class="button production__button production__button_arrow-down" type="button">
+                    <span class="visually-hidden">От большего к меньшему</span>
+                  </button>
+                </div>
+              </div>
+              <ul class="card production__list">
+                <li class="card__item">
+                  <a class="card__link" href="#">
+                    <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                    <span class="card__img-inner">
+                      <img class="card__img" src="images/products/amateur-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                      <span class="button button_yellow card__more">Подробнее</span>
+                    </span>
+                    <h2 class="heading card__title">Любительская селфи-палка</h2>
+                    <span class="card__price">500 ₽</span>
+                  </a>
+                </li>
+                <li class="card__item">
+                  <a class="card__link" href="#">
+                    <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                    <span class="card__img-inner">
+                      <img class="card__img" src="images/products/professional-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                      <span class="button button_yellow card__more">Подробнее</span>
+                    </span>
+                    <h2 class="heading card__title">Профессиональная селфи-палка</h2>
+                    <span class="card__price">1500 ₽</span>
+                  </a>
+                </li>
+                <li class="card__item">
+                  <a class="card__link" href="#">
+                    <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                    <span class="card__img-inner">
+                      <img class="card__img" src="images/products/unsinkable-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                      <span class="button button_yellow card__more">Подробнее</span>
+                    </span>
+                    <h2 class="heading card__title">Непотопляемая селфи-палка</h2>
+                    <span class="card__price">2500 ₽</span>
+                  </a>
+                </li>
+                <li class="card__item">
+                  <a class="card__link" href="#">
+                    <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
+                    <span class="card__img-inner">
+                      <img class="card__img" src="images/products/selfie-stick-follow-me-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
+                      <span class="button button_yellow card__more">Подробнее</span>
+                    </span>
+                    <h2 class="heading card__title">Селфи-палка «Следуй за мной»</h2>
+                    <span class="card__price">1500 ₽</span>
+                  </a>
+                </li>
+              </ul>
+              <button class="button production__load-more button_load-more" type="button">Загрузить еще</button>
+              <div class="pagination pagination_margin-bottom">
+                <a class="button pagination__link pagination__link_prev" href="#">Назад</a>
+                <ul class="pagination__list">
+                  <li class="pagination__item">
+                    <a class="button pagination__link pagination__link_current" href="#">1</a>
+                  </li>
+                  <li class="pagination__item">
+                    <a class="button pagination__link" href="#">2</a>
+                  </li>
+                  <li class="pagination__item">
+                    <a class="button pagination__link" href="#">3</a>
+                  </li>
+                  <li class="pagination__item">
+                    <span class="button pagination__link pagination__link_divider">...</span>
+                  </li>
+                  <li class="pagination__item">
+                    <a class="button pagination__link" href="#">15</a>
+                  </li>
+                </ul>
+                <a class="button pagination__link pagination__link_next" href="#">Вперед</a>
               </div>
             </div>
-            <ul class="card production__list">
-              <li class="card__item">
-                <a class="card__link" href="#">
-                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
-                  <span class="card__img-inner">
-                    <img class="card__img" src="images/products/amateur-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
-                    <span class="button button_yellow card__more">Подробнее</span>
-                  </span>
-                  <h3 class="heading card__title">Любительская селфи-палка</h3>
-                  <span class="card__price">500 ₽</span>
-                </a>
-              </li>
-              <li class="card__item">
-                <a class="card__link" href="#">
-                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
-                  <span class="card__img-inner">
-                    <img class="card__img" src="images/products/professional-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
-                    <span class="button button_yellow card__more">Подробнее</span>
-                  </span>
-                  <h3 class="heading card__title">Профессиональная селфи-палка</h3>
-                  <span class="card__price">1500 ₽</span>
-                </a>
-              </li>
-              <li class="card__item">
-                <a class="card__link" href="#">
-                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
-                  <span class="card__img-inner">
-                    <img class="card__img" src="images/products/unsinkable-selfie-stick-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
-                    <span class="button button_yellow card__more">Подробнее</span>
-                  </span>
-                  <h3 class="heading card__title">Непотопляемая селфи-палка</h3>
-                  <span class="card__price">2500 ₽</span>
-                </a>
-              </li>
-              <li class="card__item">
-                <a class="card__link" href="#">
-                  <!-- Чтобы отобразить ярлык "NEW", нужно добавить класс "card__img-inner_new" -->
-                  <span class="card__img-inner">
-                    <img class="card__img" src="images/products/selfie-stick-follow-me-medium.jpg" alt="Любительская селфи-палка" width="360" height="380">
-                    <span class="button button_yellow card__more">Подробнее</span>
-                  </span>
-                  <h3 class="heading card__title">Селфи-палка «Следуй за мной»</h3>
-                  <span class="card__price">1500 ₽</span>
-                </a>
-              </li>
-            </ul>
-            <button class="button production__load-more button_load-more" type="button">Загрузить еще</button>
-            <ul class="pagination production__pagination">
-              <li class="pagination__item">
-                <a class="button pagination__link" href="#">Назад</a>
-              </li>
-              <li class="pagination__item">
-                <a class="button pagination__link pagination__link_current" href="#">1</a>
-              </li>
-              <li class="pagination__item">
-                <a class="button pagination__link" href="#">2</a>
-              </li>
-              <li class="pagination__item">
-                <a class="button pagination__link" href="#">3</a>
-              </li>
-              <li class="pagination__item">
-                <a class="button pagination__link" href="#">...</a>
-              </li>
-              <li class="pagination__item">
-                <a class="button pagination__link" href="#">15</a>
-              </li>
-              <li class="pagination__item">
-                <a class="button pagination__link" href="#">Вперед</a>
-              </li>
-            </ul>
           </div>
         </section>
-
       </main>
 
       <footer class="footer">
@@ -261,63 +307,7 @@
         </div>
       </footer>
     </div>
-    <dialog class="modal" id="modal-delivery">
-      <section class="modal__wrapper">
-        <h2 class="heading modal__title">Доставка под заказ</h2>
-        <button class="button modal__close-button" type="button">
-          <span class="visually-hidden">Закрыть окно доставки</span>
-        </button>
-        <form class="modal__form" action="https://echo.htmlacademy.ru/" method="post">
-          <label class="modal__input-title modal__input-title_name modal__input-title_margin">
-            <span class="modal__input-text">Ваше имя:</span>
-            <span class="modal__input-inner modal__input-inner_name">
-              <input class="field modal__input modal__input_name" type="text" name="name" placeholder="Введите имя">
-            </span>
-            <!-- Для отображение заметки, надо добавить класс "modal__info_show" блоку ниже -->
-            <span class="modal__info modal__info_name">Добавьте имя</span>
-          </label>
-          <!-- Чтобы отобразить сообщение об ошибке, надо добавить класс "modal__input-title_error" блоку ниже -->
-          <label class="modal__input-title modal__input-title_email modal__input-title_margin">
-            <span class="modal__input-text">Ваш e-mail:</span>
-            <span class="modal__input-inner modal__input-inner_email">
-              <input class="field modal__input modal__input_email" type="text" name="e-mail" placeholder="Введите e-mail">
-            </span>
-            <span class="modal__info modal__info_error-text">Забавный у вас адрес</span>
-          </label>
-          <label class="modal__input-title modal__input-title_comment">
-            <span class="modal__input-text">Что нужно привезти:</span>
-            <span class="modal__input-inner">
-              <input class="field modal__input" type="text" name="comment" placeholder="В свободной форме">
-            </span>
-          </label>
-          <div class="modal__wrapper-tooltip">
-            <span class="modal__inner-tooltip">
-              <label class="modal__input-title modal__input-title_display" for="input-amount">
-                <span class="modal__input-text">Количество:</span>
-              </label>
-              <span class="tooltip modal__tooltip">
-                <button class="button tooltip__button" type="button" aria-labelledby="tooltip-text"></button>
-                <span class="tooltip__text" id="tooltip-text">Постараемся найти, сколько нужно. Привезём сколько получится по требованиям к провозу багажа.</span>
-              </span>
-            </span>
-            <div class="modal__inner-input">
-              <button class="button modal__button-input modal__button-input_minus" type="button">
-                <span class="visually-hidden">Уменьшить количество</span>
-              </button>
-              <button class="button modal__button-input modal__button-input_plus" type="button">
-                <span class="visually-hidden">Увеличить количество</span>
-              </button>
-              <input class="field modal__input modal__input_number" id="input-amount" type="number" name="amount" value="1">
-            </div>
-          </div>
-          <button class="button modal__button-submit button_yellow" type="submit">Отправить</button>
-        </form>
-      </section>
-    </dialog>
     <script src="scripts/script.js"></script>
-    <script src="scripts/modal.js"></script>
-    <script src="scripts/slider.js"></script>
-    <script src="scripts/tabs.js"></script>
   </body>
 
 </html>

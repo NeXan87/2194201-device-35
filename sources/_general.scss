@@ -339,15 +339,11 @@ body {
     }
 
     &:hover {
-      @extend %condition-hover;
-    }
-
-    &:hover::after {
-      opacity: 0.3;
+      color: #666666;
     }
 
     &:active {
-      @extend %condition-active;
+      color: #b3b3b3;
     }
   }
 }
@@ -442,6 +438,8 @@ body {
     bottom: 0;
     left: 0;
 
+    width: 100%;
+    max-width: 210px;
     height: min-content;
     margin: auto;
 
@@ -477,44 +475,84 @@ body {
 }
 
 .pagination {
-  @extend %list-style-none;
   display: flex;
   align-items: center;
   width: calc(100% - 80px);
-  margin: 0 auto 78px;
+  margin: 0 auto;
+
   background-color: #f0f0f0;
 
+  &_margin-bottom {
+    margin-bottom: 78px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @extend %list-style-none;
+  }
+
   &__item {
-    line-height: 18px;
-    max-width: 140px;
-
-    &:first-child,
-    &:last-child {
-      margin: 0 auto;
-      padding: 16px;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:nth-child(n + 2):nth-last-child(n + 2) {
-      font-size: 16px;
-      line-height: 20px;
-      font-weight: 400;
-      font-family: $default-font;
-      opacity: 0.3;
-      color: #444444;
-    }
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: $default-font;
   }
 
   &__link {
-    &:nth-child(n + 2):nth-last-child(n + 2) {
-      padding: 10px 11px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 10px 11px;
+
+    font-family: inherit;
+    color: #b9b9b9;
+
+    &:hover {
+      color: #444444;
+    }
+
+    &:active {
+      color: #c7c7c7;
+    }
+
+    &_prev,
+    &_next {
+      max-width: 140px;
+      margin: 0 auto;
+      padding: 26px;
+
+      line-height: 18px;
+      font-family: $title-font;
+      color: #000000;
+
+      &:hover {
+        background-color: #dcdcdc;
+      }
+
+      &:active {
+        color: #9a9a9a;
+      }
+    }
+
+    &_prev {
+      margin-left: 0;
+    }
+
+    &_next {
+      margin-right: 0;
+    }
+
+    &_current {
+      color: #878787 !important;
+
+      pointer-events: none;
+    }
+
+    &_divider {
+      pointer-events: none;
     }
   }
 }

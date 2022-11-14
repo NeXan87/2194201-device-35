@@ -1,14 +1,18 @@
 .production {
-  display: grid;
-  width: $default-width;
-  margin: 0 auto;
-
-  grid-template-columns: 320px 1fr;
+  background-color: #f0f0f0;
 
   &__heading {
+    width: $default-width;
+    margin: 0 auto;
     padding: 35px 21px 34px 60px;
+  }
 
-    grid-column: 1 / -1;
+  &__wrapper {
+    display: grid;
+    width: $default-width;
+    margin: 0 auto;
+
+    grid-template-columns: 320px 1fr;
   }
 
   &__title {
@@ -19,12 +23,59 @@
   }
 
   &__filter {
-    background-color: #f0f0f0;
+    padding: 25px 60px;
 
     grid-column-start: 1;
   }
 
-  &__wrapper {
+  &__filter-heading {
+    margin-bottom: 60px;
+
+    font-size: 16px;
+    line-height: 19px;
+    font-family: $title-font;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  &__filter-inner {
+    display: block;
+  }
+
+  &__filter-group {
+    position: relative;
+
+    padding: 0;
+    padding-bottom: 30px;
+
+    border: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: #000000;
+    }
+  }
+
+  &__filter-title {
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: -0.02em;
+  }
+
+  &__filter-button {
+    width: 100%;
+  }
+
+  &__inner {
+    background-color: #ffffff;
+
     grid-column-end: -1;
   }
 
@@ -37,6 +88,8 @@
   }
 
   &__title-select {
+    max-width: 400px;
+
     font-size: 16px;
     line-height: 19px;
     font-family: $title-font;
@@ -50,6 +103,11 @@
 
     background-color: transparent;
     border: 0;
+  }
+
+  &__direction {
+    display: flex;
+    flex-shrink: 0;
   }
 
   &__button {
