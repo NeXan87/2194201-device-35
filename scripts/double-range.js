@@ -54,7 +54,7 @@ function paintTrack() {
   let percentMax = (toggleMax.value / toggleMax.max) * 100;
 
   rangeTrack.style.background = `linear-gradient(to right, #dcdcdc ${percentMin}%,
-                                                           #000000 ${percentMin}%,
-                                                           #000000 ${percentMax}%,
+                                                           #444444 ${percentMin}%,
+                                                           #444444 ${percentMax}%,
                                                            #dcdcdc ${percentMax}%)`;
 }
