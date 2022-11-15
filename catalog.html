@@ -124,28 +124,18 @@
               <div class="production__wrapper-border">
                 <fieldset class="production__filter-group">
                   <legend class="production__filter-title">Стоимость</legend>
-                  <div class="production__range-scale">
-                    <div class="production__range-bar">
-                      <div class="production__range-wrapper production__range-wrapper_min" style="left: -9px;">
-                        <button class="production__range-toggle " type="button">
-                          <span class="visually-hidden">Выбрать минимальную стоимость</span>
-                        </button>
-                        <label class="production__range-text">
-                          <span class="production__range-price-text">от</span>
-                          <input class="production__range-price-input" type="text" name="price-min" value="0">
-                          <span class="production__range-price">0</span>
-                        </label>
-                      </div>
-                      <div class="production__range-wrapper production__range-wrapper_max" style="right: -9px;">
-                        <button class="production__range-toggle" type="button">
-                          <span class="visually-hidden">Выбрать максимальную стоимость</span>
-                        </button>
-                        <label class="production__range-text">
-                          <span class="production__range-price-text">до</span>
-                          <input class="production__range-price-input" type="text" name="price-max" value="5000">
-                          <span class="production__range-price">5000</span>
-                        </label>
-                      </div>
+                  <div class="double-range">
+                    <div class="double-range__wrapper">
+                      <div class="double-range__track" id="range-track"></div>
+                      <input class="double-range__input double-range__input_min" type="range" name="price-min" id="toggle-min" min="0" max="10000" step="100" value="0">
+                      <input class="double-range__input double-range__input_max" type="range" name="price-max" id="toggle-max" min="0" max="10000" step="100" value="10000">
+                    </div>
+                    <div class="double-range__values">
+                      <span>от</span>
+                      <span class="double-range__output_min" id="range-output-min">30</span>
+                      <span>до</span>
+                      <span class="double-range__output_max" id="range-output-max">100</span>
+                      <span>руб.</span>
                     </div>
                   </div>
                 </fieldset>
@@ -339,6 +329,7 @@
       </footer>
     </div>
     <script src="scripts/script.js"></script>
+    <script src="scripts/double-range.js"></script>
   </body>
 
 </html>

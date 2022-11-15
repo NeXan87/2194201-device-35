@@ -23,69 +23,6 @@
     line-height: 50px;
   }
 
-  &__range-scale {
-    position: relative;
-
-    width: 100%;
-    height: 2px;
-    margin: 0 auto 30px;
-
-    border-bottom: 2px solid #dcdcdc;
-
-    grid-column: 1 / -1;
-  }
-
-  &__range-bar {
-    position: absolute;
-    left: 0;
-
-    width: 119px;
-    height: 2px;
-
-    border-bottom: 2px solid #000000;
-  }
-
-  &__range-wrapper {
-    position: absolute;
-    top: -8px;
-
-    display: flex;
-  }
-
-  &__range-toggle {
-    width: 18px;
-    height: 18px;
-    padding: 0;
-
-    background-color: #ebebeb;
-    border: 2px solid #000000;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  &__range-price-text {
-    margin-right: 5px;
-  }
-
-  &__range-price-input {
-    display: none;
-  }
-
-  &__range-text {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-
-    display: flex;
-    margin-top: 5px;
-
-    font-size: 14px;
-    line-height: 20px;
-    color: #a8a8a8;
-
-    transform: translateX(-50%);
-  }
-
   &__filter {
     padding: 25px 60px;
 
