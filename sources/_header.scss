@@ -38,6 +38,12 @@
   }
 }
 
+.user-signout-link {
+  padding-left: 0;
+  margin-left: 25px;
+  color: $input-placeholder;
+}
+
 .user-compare-link {
   &::before {
     width: 10px;
@@ -91,7 +97,7 @@
     flex-shrink: 0;
     max-width: 519px;
     overflow: hidden;
-
+    align-self: start;
     grid-column: 1;
   }
 
@@ -194,10 +200,6 @@
     width: 100%;
 
     grid-column-end: -1;
-  }
-
-  &__user-item:not(:first-child) {
-    margin-left: 36px;
   }
 
   &__product-item:not(:first-child) {

@@ -495,6 +495,12 @@ body {
   background-image: url("../images/icons/user.svg");
 }
 
+.user-signout-link {
+  padding-left: 0;
+  margin-left: 25px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
 .user-compare-link::before {
   width: 10px;
   height: 12px;
@@ -531,6 +537,7 @@ body {
   flex-shrink: 0;
   max-width: 519px;
   overflow: hidden;
+  align-self: start;
   grid-column: 1;
 }
 .header__search-title {
@@ -612,9 +619,6 @@ body {
   align-content: center;
   width: 100%;
   grid-column-end: -1;
-}
-.header__user-item:not(:first-child) {
-  margin-left: 36px;
 }
 .header__product-item:not(:first-child) {
   margin-left: 36px;
