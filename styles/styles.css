@@ -1344,13 +1344,8 @@ body {
 }
 .production__range-wrapper {
   position: absolute;
-  top: -20px;
-}
-.production__range-wrapper_min {
-  left: -9px;
-}
-.production__range-wrapper_max {
-  right: -9px;
+  top: -8px;
+  display: flex;
 }
 .production__range-toggle {
   width: 18px;

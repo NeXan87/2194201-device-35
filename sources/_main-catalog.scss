@@ -47,15 +47,9 @@
 
   &__range-wrapper {
     position: absolute;
-    top: -20px;
+    top: -8px;
 
-    &_min {
-      left: -9px;
-    }
-
-    &_max {
-      right: -9px;
-    }
+    display: flex;
   }
 
   &__range-toggle {
