@@ -450,6 +450,7 @@ body {
   line-height: 18px;
   font-family: "Raleway", sans-serif;
   color: #000000;
+  letter-spacing: 0.2em;
 }
 .pagination__link_prev:hover, .pagination__link_next:hover {
   background-color: #dcdcdc;
@@ -1318,7 +1319,6 @@ body {
 }
 .production__title {
   margin-bottom: 16px;
-  margin-bottom: 20px;
   padding: 0;
   font-size: 50px;
   line-height: 50px;
@@ -1327,8 +1327,7 @@ body {
   position: relative;
   width: 100%;
   height: 2px;
-  margin: 0 auto;
-  margin-bottom: 40px;
+  margin: 0 auto 30px;
   border-bottom: 2px solid #dcdcdc;
   grid-column: 1/-1;
 }
@@ -1344,10 +1343,10 @@ body {
   top: -20px;
 }
 .production__range-wrapper_min {
-  left: 0;
+  left: -9px;
 }
 .production__range-wrapper_max {
-  right: 0;
+  right: -9px;
 }
 .production__range-toggle {
   width: 18px;
@@ -1357,13 +1356,6 @@ body {
   border: 2px solid #000000;
   border-radius: 50%;
   cursor: pointer;
-}
-.production__range-price {
-  font-size: inherit;
-  font-family: inherit;
-  color: inherit;
-  background-color: transparent;
-  border: 0;
 }
 .production__range-price-text {
   margin-right: 5px;
@@ -1388,7 +1380,7 @@ body {
   grid-column-start: 1;
 }
 .production__filter-heading {
-  margin-bottom: 60px;
+  margin-bottom: 58px;
   font-size: 16px;
   line-height: 19px;
   font-family: "Raleway", sans-serif;
@@ -1401,24 +1393,19 @@ body {
 .production__filter-inner:not(:last-child) {
   margin-bottom: 17px;
 }
-.production__filter-group {
-  position: relative;
+.production__wrapper-border {
   margin-bottom: 35px;
+  border-top: 2px solid #000000;
+}
+.production__filter-group {
+  margin: 0;
   padding: 0;
   border: 0;
 }
-.production__filter-group::before {
-  content: "";
-  position: absolute;
-  top: -55px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #000000;
-}
 .production__filter-title {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   padding: 0;
+  padding-top: 7px;
   font-weight: 700;
   color: #000000;
   letter-spacing: -0.02em;
@@ -1451,6 +1438,7 @@ body {
 }
 .production__filter-input-2 {
   position: relative;
+  flex-shrink: 0;
   width: 20px;
   height: 20px;
   margin-right: 16px;
