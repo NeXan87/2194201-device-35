@@ -640,7 +640,15 @@ body {
       background-color: #ffc700;
     }
 
+    &:hover::-moz-range-thumb {
+      background-color: #ffc700;
+    }
+
     &:active::-webkit-slider-thumb {
+      background-color: #e2b100;
+    }
+
+    &:active::-moz-range-thumb {
       background-color: #e2b100;
     }
 
@@ -648,7 +656,27 @@ body {
     &_max {
       appearance: none;
 
+      &:focus::-webkit-slider-thumb {
+        outline: $condition-focus;
+      }
+
+      &:focus:not(:focus-visible)::-webkit-slider-thumb {
+        outline: none;
+      }
+
       &:focus-visible::-webkit-slider-thumb {
+        outline: $condition-focus;
+      }
+
+      &:focus::-moz-range-thumb {
+        outline: $condition-focus;
+      }
+
+      &:focus:not(:focus-visible)::-moz-range-thumb {
+        outline: none;
+      }
+
+      &:focus-visible::-moz-range-thumb {
         outline: $condition-focus;
       }
     }

@@ -535,7 +535,13 @@ body {
 .double-range__input:hover::-webkit-slider-thumb {
   background-color: #ffc700;
 }
+.double-range__input:hover::-moz-range-thumb {
+  background-color: #ffc700;
+}
 .double-range__input:active::-webkit-slider-thumb {
+  background-color: #e2b100;
+}
+.double-range__input:active::-moz-range-thumb {
   background-color: #e2b100;
 }
 .double-range__input_min, .double-range__input_max {
@@ -543,7 +549,22 @@ body {
      -moz-appearance: none;
           appearance: none;
 }
+.double-range__input_min:focus::-webkit-slider-thumb, .double-range__input_max:focus::-webkit-slider-thumb {
+  outline: 2px solid #af4fff;
+}
+.double-range__input_min:focus:not(:focus-visible)::-webkit-slider-thumb, .double-range__input_max:focus:not(:focus-visible)::-webkit-slider-thumb {
+  outline: none;
+}
 .double-range__input_min:focus-visible::-webkit-slider-thumb, .double-range__input_max:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #af4fff;
+}
+.double-range__input_min:focus::-moz-range-thumb, .double-range__input_max:focus::-moz-range-thumb {
+  outline: 2px solid #af4fff;
+}
+.double-range__input_min:focus:not(:focus-visible)::-moz-range-thumb, .double-range__input_max:focus:not(:focus-visible)::-moz-range-thumb {
+  outline: none;
+}
+.double-range__input_min:focus-visible::-moz-range-thumb, .double-range__input_max:focus-visible::-moz-range-thumb {
   outline: 2px solid #af4fff;
 }
 .double-range__values {
