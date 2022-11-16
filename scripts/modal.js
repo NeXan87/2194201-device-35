@@ -29,6 +29,8 @@ deliveryLink.addEventListener("click", (event) => {
   event.preventDefault();
   modalDialog.showModal();
   document.body.style.overflow = "hidden";
+
+  document.addEventListener("keydown", closePopupEsc);
 });
 
 // Закрытие модального окна по кнопке "Закрыть"

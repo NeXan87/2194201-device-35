@@ -17,10 +17,12 @@ calcBasketElements();
 catalogLink.addEventListener("click", () => {
   catalogLink.classList.toggle("catalog_minus");
   catalogContainer.classList.toggle("catalog_open");
+
+  document.addEventListener("click", closePopup);
+  document.addEventListener("keydown", closePopupEsc);
 });
 
-// Закрыть попап корзины по клику вне блока
-document.addEventListener("click", (event) => {
+function closePopup(event) {
   const withinBasket = event.composedPath().includes(basketContainer);
   const withinBasketLink = event.composedPath().includes(basketLink);
   const withinCatalog = event.composedPath().includes(catalogContainer);
@@ -33,6 +35,9 @@ document.addEventListener("click", (event) => {
       basketContainer.classList.contains("header_basket-open"))
   ) {
     basketContainer.classList.toggle("header_basket-open");
+
+    document.removeEventListener("click", closePopup);
+    document.removeEventListener("keydown", closePopupEsc);
   }
 
   if (
@@ -42,27 +47,33 @@ document.addEventListener("click", (event) => {
   ) {
     catalogLink.classList.toggle("catalog_minus");
     catalogContainer.classList.toggle("catalog_open");
-  }
-});
 
-document.addEventListener("keydown", function (event) {
+    document.removeEventListener("click", closePopup);
+    document.removeEventListener("keydown", closePopupEsc);
+  }
+}
+
+function closePopupEsc(event) {
   if (event.keyCode == 27) {
     basketContainer.classList.remove("header_basket-open");
     catalogLink.classList.remove("catalog_minus");
     catalogContainer.classList.remove("catalog_open");
 
-    if (typeof modalDialog !== "undefined") {
-      if (modalDialog.hasAttribute("open")) {
-        document.body.style.overflow = null;
-      }
+    if (document.querySelector(".modal").hasAttribute("open")) {
+      document.body.style.overflow = null;
     }
   }
-});
+
+  document.removeEventListener("keydown", closePopupEsc);
+}
 
 // Открытие попапа по клику на корзину
 basketLink.addEventListener("click", (event) => {
   event.preventDefault();
   basketContainer.classList.toggle("header_basket-open");
+
+  document.addEventListener("click", closePopup);
+  document.addEventListener("keydown", closePopupEsc);
 });
 
 // Функция инициализации количества товаров и общей цены в корзине
