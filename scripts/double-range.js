@@ -6,12 +6,10 @@ let toggleMax = document.querySelector("#toggle-max");
 let outputMin = document.querySelector("#range-output-min");
 let outputMax = document.querySelector("#range-output-max");
 
-let minGap = 0; // минимальное расстояние между ползунками
+const minGap = 0; // минимальное расстояние между ползунками
 
-window.onload = function () {
-  movingToggleMin();
-  movingToggleMax();
-};
+movingToggleMin();
+movingToggleMax();
 
 toggleMin.oninput = function () {
   movingToggleMin();
@@ -22,13 +20,17 @@ toggleMax.oninput = function () {
 };
 
 toggleMin.onmousedown = function () {
-  toggleMin.style.zIndex = "1";
-  toggleMax.style.zIndex = "0";
+  if (toggleMin.hasAttribute("style", "z-index: 0;"))
+    toggleMin.style.zIndex = "1";
+  if (toggleMax.hasAttribute("style", "z-index: 1;"))
+    toggleMax.style.zIndex = "0";
 };
 
 toggleMax.onmousedown = function () {
-  toggleMin.style.zIndex = "0";
-  toggleMax.style.zIndex = "1";
+  if (toggleMin.hasAttribute("style", "z-index: 1;"))
+    toggleMin.style.zIndex = "0";
+  if (toggleMax.hasAttribute("style", "z-index: 0;"))
+    toggleMax.style.zIndex = "1";
 };
 
 function movingToggleMin() {
