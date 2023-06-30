@@ -1,10 +1,5 @@
 # Личный проект «Девайс»
 
-* Студент: [Денис Левчев](https://up.htmlacademy.ru/htmlcss/35/user/2194201).
-* Наставник: `Неизвестно`.
-
----
-
 _Не удаляйте и не обращайте внимание на файлы:_<br>
 _`.editorconfig`, `.gitattributes`, `.gitignore`, `Contributing.md`, `Readme.md`._
 
